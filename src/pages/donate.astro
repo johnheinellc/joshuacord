@@ -1,0 +1,303 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const regions = [
+  'All Missions',
+  'Afghanistan',
+  'Egypt',
+  'India',
+  'Iraq',
+  'Nigeria',
+  'Somalia',
+  'Sudan & South Sudan',
+  'Syria',
+];
+
+const oneTimeAmounts = [25, 50, 100, 250];
+const monthlyAmounts = [10, 25, 50, 100];
+---
+
+<Layout
+  title="Donate"
+  description="Give to Joshuacord and support persecuted Christians around the world with prayer, practical aid, and advocacy."
+>
+
+  <!-- PAGE HERO -->
+  <section class="relative bg-dark py-28 overflow-hidden">
+    <div class="absolute inset-0 opacity-20">
+      <img
+        src="https://joshuacord.org/wp-content/uploads/2014/08/HiRes-scaled.jpg"
+        alt=""
+        class="w-full h-full object-cover"
+      />
+    </div>
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-clay text-sm font-medium tracking-[0.2em] uppercase mb-4">Make a Difference</p>
+      <h1 class="font-display text-5xl sm:text-6xl text-white mb-5">Give Today</h1>
+      <div class="w-12 h-0.5 bg-brand mx-auto mb-6"></div>
+      <p class="text-white/65 text-lg leading-relaxed max-w-2xl mx-auto">
+        Every dollar you give helps Joshuacord bring prayer, practical aid, and a voice
+        of hope to Christians suffering for their faith around the world.
+      </p>
+    </div>
+  </section>
+
+  <!-- MAIN DONATION SECTION -->
+  <section class="py-24 bg-sand">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start">
+
+        <!-- LEFT: Donation form -->
+        <div class="lg:col-span-3">
+
+          <!-- Tabs: One-time / Monthly -->
+          <div class="flex border-b border-clay/30 mb-8">
+            <button
+              id="tab-onetime"
+              class="donate-tab px-6 py-3 text-sm font-medium tracking-wide border-b-2 transition-colors border-brand text-brand"
+            >
+              One-Time Gift
+            </button>
+            <button
+              id="tab-monthly"
+              class="donate-tab px-6 py-3 text-sm font-medium tracking-wide border-b-2 transition-colors border-transparent text-dark/50 hover:text-dark"
+            >
+              Monthly — Freedom Partner
+            </button>
+          </div>
+
+          <!-- One-time amounts -->
+          <div id="panel-onetime" class="donate-panel space-y-6">
+            <div>
+              <p class="text-dark/60 text-xs uppercase tracking-wide mb-3">Select an Amount</p>
+              <div class="grid grid-cols-4 gap-3">
+                {oneTimeAmounts.map((amt) => (
+                  <button
+                    class="amount-btn border border-clay/40 hover:border-brand hover:text-brand text-dark text-sm font-medium py-3 transition-colors data-[selected=true]:bg-brand data-[selected=true]:border-brand data-[selected=true]:text-white"
+                    data-amount={amt}
+                  >
+                    ${amt}
+                  </button>
+                ))}
+              </div>
+              <div class="mt-3">
+                <div class="relative">
+                  <span class="absolute left-4 top-1/2 -translate-y-1/2 text-dark/40 text-sm">$</span>
+                  <input
+                    id="custom-amount"
+                    type="number"
+                    min="1"
+                    placeholder="Other amount"
+                    class="w-full border border-clay/40 focus:border-brand bg-transparent text-dark placeholder-dark/30 pl-8 pr-4 py-3 text-sm focus:outline-none"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Region -->
+            <div>
+              <label class="block text-dark/60 text-xs uppercase tracking-wide mb-2">
+                Designate Your Gift (Optional)
+              </label>
+              <div class="relative">
+                <select
+                  id="region-onetime"
+                  class="w-full appearance-none bg-transparent border border-clay/40 focus:border-brand text-dark px-4 py-3 pr-10 text-sm focus:outline-none cursor-pointer"
+                >
+                  {regions.map((r) => (
+                    <option value={r}>{r}</option>
+                  ))}
+                </select>
+                <div class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2">
+                  <svg class="w-4 h-4 text-dark/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Proceed button (payment processor placeholder) -->
+            <div>
+              <button
+                class="w-full bg-brand hover:bg-brand-dark text-white py-4 text-sm font-medium tracking-wide transition-colors"
+              >
+                Proceed to Checkout
+              </button>
+              <p class="text-center text-xs text-dark/40 mt-3 italic">
+                Secure payment processing — coming soon
+              </p>
+            </div>
+          </div>
+
+          <!-- Monthly amounts (hidden by default) -->
+          <div id="panel-monthly" class="donate-panel space-y-6 hidden">
+            <div class="bg-brand/8 border border-brand/20 px-5 py-4 mb-2">
+              <p class="text-brand text-sm font-medium">Freedom Partner</p>
+              <p class="text-dark/65 text-xs mt-1 leading-relaxed">
+                A monthly commitment provides sustained, reliable support that persecuted believers
+                can count on. Your recurring gift makes long-term ministry possible.
+              </p>
+            </div>
+
+            <div>
+              <p class="text-dark/60 text-xs uppercase tracking-wide mb-3">Monthly Amount</p>
+              <div class="grid grid-cols-4 gap-3">
+                {monthlyAmounts.map((amt) => (
+                  <button
+                    class="amount-btn border border-clay/40 hover:border-brand hover:text-brand text-dark text-sm font-medium py-3 transition-colors data-[selected=true]:bg-brand data-[selected=true]:border-brand data-[selected=true]:text-white"
+                    data-amount={amt}
+                  >
+                    ${amt}
+                  </button>
+                ))}
+              </div>
+              <div class="mt-3">
+                <div class="relative">
+                  <span class="absolute left-4 top-1/2 -translate-y-1/2 text-dark/40 text-sm">$</span>
+                  <input
+                    type="number"
+                    min="1"
+                    placeholder="Other monthly amount"
+                    class="w-full border border-clay/40 focus:border-brand bg-transparent text-dark placeholder-dark/30 pl-8 pr-4 py-3 text-sm focus:outline-none"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Region -->
+            <div>
+              <label class="block text-dark/60 text-xs uppercase tracking-wide mb-2">
+                Designate Your Gift (Optional)
+              </label>
+              <div class="relative">
+                <select
+                  class="w-full appearance-none bg-transparent border border-clay/40 focus:border-brand text-dark px-4 py-3 pr-10 text-sm focus:outline-none cursor-pointer"
+                >
+                  {regions.map((r) => (
+                    <option value={r}>{r}</option>
+                  ))}
+                </select>
+                <div class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2">
+                  <svg class="w-4 h-4 text-dark/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <button
+                class="w-full bg-brand hover:bg-brand-dark text-white py-4 text-sm font-medium tracking-wide transition-colors"
+              >
+                Become a Freedom Partner
+              </button>
+              <p class="text-center text-xs text-dark/40 mt-3 italic">
+                Secure payment processing — coming soon
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- RIGHT: Why give -->
+        <div class="lg:col-span-2 space-y-8">
+          <div>
+            <p class="text-brand text-sm font-medium tracking-[0.2em] uppercase mb-3">Your Impact</p>
+            <h2 class="font-display text-3xl text-dark mb-4">Why Your Gift Matters</h2>
+            <div class="w-10 h-0.5 bg-brand mb-5"></div>
+            <p class="text-dark/70 text-sm leading-relaxed">
+              More than 150,000 Christians face persecution each year. Many lose their jobs,
+              their homes, and their families. Your gift provides:
+            </p>
+          </div>
+
+          <ul class="space-y-4">
+            {[
+              { label: 'Prayer & Spiritual Support', desc: 'Connecting persecuted believers with a global community praying for them by name.' },
+              { label: 'Practical Aid', desc: 'Food, shelter, and essential resources for families displaced by persecution.' },
+              { label: 'Advocacy & Awareness', desc: 'Documentary films and public campaigns that refuse to let the world look away.' },
+              { label: 'Regional Ministry', desc: 'Support designated to specific mission fields — your gift goes where you direct it.' },
+            ].map((item) => (
+              <li class="flex gap-4">
+                <div class="shrink-0 w-5 h-5 mt-0.5 bg-brand/15 flex items-center justify-center">
+                  <div class="w-1.5 h-1.5 bg-brand rounded-full"></div>
+                </div>
+                <div>
+                  <p class="text-dark font-medium text-sm">{item.label}</p>
+                  <p class="text-dark/60 text-xs mt-0.5 leading-relaxed">{item.desc}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+
+          <!-- Tax info -->
+          <div class="bg-sand-dark border border-clay/30 p-5">
+            <p class="text-dark/70 text-xs leading-relaxed">
+              <strong class="text-dark">Joshuacord Inc.</strong> is a registered 501(c)(3) nonprofit
+              organization. All donations are tax-deductible to the extent permitted by law.
+              You will receive a receipt for your records.
+            </p>
+          </div>
+
+          <!-- Scripture -->
+          <blockquote class="border-l-3 border-clay pl-5">
+            <p class="font-display text-base text-dark/80 italic leading-relaxed">
+              "Your gift changes lives. Every dollar you give helps Joshuacord bring prayer,
+              practical aid, and a voice of hope to Christians suffering for their faith
+              around the world."
+            </p>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACT QUOTE -->
+  <section class="py-20 bg-brand">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <blockquote>
+        <p class="font-display text-2xl sm:text-3xl text-white italic leading-relaxed mb-5">
+          "We don't work together — we live together."
+        </p>
+        <cite class="text-white/65 text-sm not-italic">
+          — Um Rama, Jordan, caring for Iraqi Christian refugees
+        </cite>
+      </blockquote>
+    </div>
+  </section>
+
+</Layout>
+
+<script>
+  // Tab switching
+  const tabOnetime = document.getElementById('tab-onetime')!;
+  const tabMonthly = document.getElementById('tab-monthly')!;
+  const panelOnetime = document.getElementById('panel-onetime')!;
+  const panelMonthly = document.getElementById('panel-monthly')!;
+
+  function activateTab(active: HTMLElement, inactive: HTMLElement, show: HTMLElement, hide: HTMLElement) {
+    active.classList.add('border-brand', 'text-brand');
+    active.classList.remove('border-transparent', 'text-dark/50');
+    inactive.classList.remove('border-brand', 'text-brand');
+    inactive.classList.add('border-transparent', 'text-dark/50');
+    show.classList.remove('hidden');
+    hide.classList.add('hidden');
+  }
+
+  tabOnetime.addEventListener('click', () => activateTab(tabOnetime, tabMonthly, panelOnetime, panelMonthly));
+  tabMonthly.addEventListener('click', () => activateTab(tabMonthly, tabOnetime, panelMonthly, panelOnetime));
+
+  // Amount button selection
+  document.querySelectorAll('.amount-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      // Deselect siblings in the same panel
+      const panel = btn.closest('.donate-panel');
+      panel?.querySelectorAll('.amount-btn').forEach((b) => b.removeAttribute('data-selected'));
+      btn.setAttribute('data-selected', 'true');
+
+      // Clear custom input if a preset is selected
+      const customInput = panel?.querySelector<HTMLInputElement>('#custom-amount');
+      if (customInput) customInput.value = '';
+    });
+  });
+</script>

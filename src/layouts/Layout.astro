@@ -1,0 +1,208 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Home',
+  description = 'Joshuacord helps persecuted Christians around the world through prayer, practical aid, and advocacy.',
+} = Astro.props;
+
+const currentPath = Astro.url.pathname;
+
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/mission-fields', label: 'Mission Fields' },
+  { href: '/media', label: 'Media' },
+];
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/png" href="https://joshuacord.org/wp-content/uploads/2014/08/JC-Logo-header3.png" />
+    <title>{title} | Joshuacord</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <header class="sticky top-0 z-50 bg-dark/97 backdrop-blur-sm border-b border-sand/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+
+          <!-- Logo -->
+          <a href="/" class="shrink-0">
+            <img
+              src="https://joshuacord.org/wp-content/uploads/2014/08/JC-Logo-header3.png"
+              alt="Joshuacord"
+              class="h-12 w-auto"
+            />
+          </a>
+
+          <!-- Desktop nav -->
+          <nav class="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <a
+                href={link.href}
+                class={`text-sm font-medium tracking-wide transition-colors hover:text-brand pb-0.5 ${
+                  currentPath === link.href
+                    ? 'text-brand border-b-2 border-brand'
+                    : 'text-sand/70'
+                }`}
+              >
+                {link.label}
+              </a>
+            ))}
+            <a
+              href="/donate"
+              class="bg-brand hover:bg-brand-dark text-white text-sm font-medium tracking-wide px-5 py-2.5 transition-colors"
+            >
+              Donate
+            </a>
+          </nav>
+
+          <!-- Mobile menu button -->
+          <button
+            id="menu-btn"
+            class="md:hidden p-2 text-sand"
+            aria-label="Toggle navigation"
+          >
+            <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile nav drawer -->
+      <div id="mobile-menu" class="hidden md:hidden border-t border-sand/10 bg-dark">
+        <div class="px-4 py-5 flex flex-col gap-4">
+          {navLinks.map((link) => (
+            <a href={link.href} class="text-sand/70 hover:text-brand font-medium py-1">
+              {link.label}
+            </a>
+          ))}
+          <a
+            href="/donate"
+            class="bg-brand text-white text-sm font-medium text-center px-5 py-3 mt-1"
+          >
+            Donate
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- PAGE CONTENT -->
+    <main>
+      <slot />
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-sand/70">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+
+          <!-- Brand column -->
+          <div class="space-y-4">
+            <img
+              src="https://joshuacord.org/wp-content/uploads/2014/08/JC-Logo-header3.png"
+              alt="Joshuacord"
+              class="h-10 w-auto brightness-0 invert"
+            />
+            <p class="text-sm leading-relaxed">
+              Bringing prayer, practical aid, and a voice of hope to Christians
+              suffering for their faith around the world.
+            </p>
+            <p class="text-xs text-clay italic">"Persecuted But Not Forgotten"</p>
+            <p class="text-xs text-sand/40">A 501(c)(3) Nonprofit Organization</p>
+          </div>
+
+          <!-- Quick links -->
+          <div>
+            <h4 class="text-sand font-display text-lg mb-5">Explore</h4>
+            <ul class="space-y-2.5 text-sm">
+              {[
+                { href: '/', label: 'Home' },
+                { href: '/about', label: 'About Us' },
+                { href: '/mission-fields', label: 'Mission Fields' },
+                { href: '/media', label: 'Media' },
+                { href: '/donate', label: 'Donate' },
+              ].map((link) => (
+                <li>
+                  <a href={link.href} class="hover:text-clay transition-colors">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Contact -->
+          <div>
+            <h4 class="text-sand font-display text-lg mb-5">Contact</h4>
+            <address class="not-italic text-sm space-y-2 leading-relaxed">
+              <p>3433 Lithia Pinecrest Road<br />Suite 120<br />Valrico, Florida 33596</p>
+              <p>
+                <a href="tel:+18134447905" class="hover:text-clay transition-colors">
+                  (813) 444-7905
+                </a>
+              </p>
+            </address>
+            <div class="flex gap-5 mt-5 text-sm">
+              <a
+                href="https://www.facebook.com/joshuacord1.9"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover:text-clay transition-colors"
+              >
+                Facebook
+              </a>
+              <a
+                href="https://twitter.com/joshua_cord"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover:text-clay transition-colors"
+              >
+                Twitter
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-12 pt-6 border-t border-sand/10 text-xs text-sand/30 text-center">
+          © {new Date().getFullYear()} Joshuacord Inc. All rights reserved.
+          "Persecuted But Not Forgotten" is a registered trademark of Joshuacord Inc.
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const btn = document.getElementById('menu-btn');
+      const menu = document.getElementById('mobile-menu');
+      const iconOpen = document.getElementById('icon-open');
+      const iconClose = document.getElementById('icon-close');
+
+      btn?.addEventListener('click', () => {
+        menu?.classList.toggle('hidden');
+        iconOpen?.classList.toggle('hidden');
+        iconClose?.classList.toggle('hidden');
+      });
+    </script>
+  </body>
+</html>

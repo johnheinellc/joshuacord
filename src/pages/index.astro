@@ -1,0 +1,255 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Home" description="Joshuacord stands with persecuted Christians around the world through prayer, practical aid, and advocacy.">
+
+  <!-- HERO -->
+  <section class="relative min-h-[92vh] flex items-center justify-center overflow-hidden">
+    <!-- Background image -->
+    <div class="absolute inset-0">
+      <img
+        src="https://joshuacord.org/wp-content/uploads/2014/08/HiRes-scaled.jpg"
+        alt=""
+        class="w-full h-full object-cover"
+      />
+      <!-- Layered overlay: dark gradient + brand red tint -->
+      <div class="absolute inset-0 bg-gradient-to-br from-dark/90 via-dark/75 to-brand-dark/60"></div>
+    </div>
+
+    <!-- Hero content -->
+    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <!-- Eyebrow -->
+      <p class="text-clay text-sm font-medium tracking-[0.2em] uppercase mb-6">
+        Joshua 1:9
+      </p>
+
+      <!-- Headline -->
+      <h1 class="font-display text-5xl sm:text-6xl lg:text-7xl text-white mb-6 leading-tight">
+        Persecuted But<br />
+        <span class="text-brand-light italic">Not Forgotten</span>
+      </h1>
+
+      <!-- Subtext -->
+      <p class="text-white/75 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-light">
+        More than 150,000 Christians face persecution for their faith each year.
+        We stand with them — through prayer, practical aid, and a voice that refuses to be silent.
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="/mission-fields"
+          class="bg-brand hover:bg-brand-dark text-white px-8 py-4 text-sm font-medium tracking-wide transition-colors w-full sm:w-auto text-center"
+        >
+          See the Mission
+        </a>
+        <a
+          href="/donate"
+          class="border border-white/60 hover:border-white text-white hover:bg-white/10 px-8 py-4 text-sm font-medium tracking-wide transition-colors w-full sm:w-auto text-center"
+        >
+          Give Today
+        </a>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/40 animate-bounce">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+      </svg>
+    </div>
+  </section>
+
+  <!-- IMPACT NUMBERS -->
+  <section class="bg-brand text-white py-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-10 text-center">
+        <div>
+          <p class="font-display text-5xl font-bold mb-2">150,000<span class="text-brand-light">+</span></p>
+          <p class="text-white/70 text-sm tracking-wide uppercase">Christians persecuted annually</p>
+        </div>
+        <div>
+          <p class="font-display text-5xl font-bold mb-2">8</p>
+          <p class="text-white/70 text-sm tracking-wide uppercase">Active mission regions</p>
+        </div>
+        <div>
+          <p class="font-display text-5xl font-bold mb-2">2</p>
+          <p class="text-white/70 text-sm tracking-wide uppercase">Documentary films produced</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT TEASER -->
+  <section class="py-24 bg-sand">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <!-- Image -->
+        <div class="relative">
+          <img
+            src="https://joshuacord.org/wp-content/uploads/2017/10/sadasdf-27-scaled.jpg"
+            alt="Joshuacord mission work"
+            class="w-full h-96 object-cover"
+          />
+          <!-- Red accent border -->
+          <div class="absolute -bottom-4 -right-4 w-32 h-32 border-4 border-brand -z-10"></div>
+        </div>
+
+        <!-- Text -->
+        <div class="space-y-6">
+          <p class="text-brand text-sm font-medium tracking-[0.2em] uppercase">Our Story</p>
+          <h2 class="font-display text-4xl text-dark">The Cord That Binds Us</h2>
+          <div class="w-12 h-0.5 bg-brand"></div>
+          <p class="text-dark/70 leading-relaxed">
+            The name Joshuacord comes from the biblical account of Joshua, Rahab, and the scarlet cord.
+            Rahab displayed a scarlet cord in her window — an act of courage, faith, and kindness —
+            and it saved her life. That cord connects us across centuries to a truth we hold today:
+            no persecuted believer should be left without hope.
+          </p>
+          <p class="text-dark/70 leading-relaxed">
+            As a 501(c)(3) nonprofit, Joshuacord brings prayer, practical aid, and global awareness
+            to the more than 150,000 Christians who suffer for their faith every year.
+          </p>
+          <a
+            href="/about"
+            class="inline-block border-b-2 border-brand text-brand font-medium text-sm hover:text-brand-dark hover:border-brand-dark transition-colors pb-0.5"
+          >
+            Learn More About Us →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION FIELDS PREVIEW -->
+  <section class="py-24 bg-sand-dark">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <p class="text-brand text-sm font-medium tracking-[0.2em] uppercase mb-3">Where We Work</p>
+        <h2 class="font-display text-4xl text-dark mb-4">Mission Fields</h2>
+        <div class="w-12 h-0.5 bg-brand mx-auto"></div>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        {[
+          { name: 'Afghanistan', desc: 'Under Taliban rule, faith is practiced in total secrecy.' },
+          { name: 'Egypt', desc: 'Coptic Christians face discrimination and attacks on churches.' },
+          { name: 'Iraq', desc: 'Ancient Christian communities decimated by war and ISIS.' },
+          { name: 'Nigeria', desc: 'Thousands killed by Boko Haram and militant violence.' },
+          { name: 'Somalia', desc: 'Among the world\'s most dangerous nations for Christians.' },
+          { name: 'Sudan', desc: 'Decades of persecution and forced displacement.' },
+          { name: 'Syria', desc: 'Civil war scattered a 2,000-year Christian presence.' },
+          { name: 'India', desc: 'Anti-conversion laws and rising religious nationalism.' },
+        ].map((field) => (
+          <a
+            href={`/mission-fields#${field.name.toLowerCase()}`}
+            class="group bg-sand border border-clay/30 p-5 hover:border-brand/40 hover:bg-white transition-all"
+          >
+            <h3 class="font-display text-lg text-dark group-hover:text-brand transition-colors mb-2">
+              {field.name}
+            </h3>
+            <p class="text-xs text-dark/60 leading-relaxed">{field.desc}</p>
+          </a>
+        ))}
+      </div>
+
+      <div class="text-center mt-10">
+        <a
+          href="/mission-fields"
+          class="inline-block bg-dark hover:bg-brand text-white text-sm font-medium tracking-wide px-8 py-3.5 transition-colors"
+        >
+          Explore All Mission Fields
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED FILM -->
+  <section class="py-24 bg-dark relative overflow-hidden">
+    <!-- Subtle texture overlay for this dark section -->
+    <div class="absolute inset-0 opacity-10">
+      <img
+        src="https://joshuacord.org/wp-content/uploads/2015/11/IRAQI-Children-Refugees-due-to-ISIL.jpg"
+        alt=""
+        class="w-full h-full object-cover"
+      />
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <!-- Film poster -->
+        <div>
+          <img
+            src="https://christiansinthemirror.com/wp-content/uploads/2020/04/poster_v2-300x170.jpg"
+            alt="Christians in the Mirror documentary poster"
+            class="w-full max-w-md mx-auto lg:mx-0 shadow-2xl"
+          />
+        </div>
+
+        <!-- Film info -->
+        <div class="space-y-6">
+          <p class="text-clay text-sm font-medium tracking-[0.2em] uppercase">Featured Documentary</p>
+          <h2 class="font-display text-4xl text-white">Christians in the Mirror</h2>
+          <div class="w-12 h-0.5 bg-brand"></div>
+          <p class="text-white/65 leading-relaxed">
+            An expository documentary that takes viewers inside the lives of persecuted Christians
+            in Syria, Iraq, India, South Sudan, and Egypt — and holds a mirror to the comfortable
+            Western church. Directed by Jordan Allott.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a
+              href="/media"
+              class="bg-brand hover:bg-brand-dark text-white px-6 py-3 text-sm font-medium tracking-wide transition-colors"
+            >
+              Watch the Film
+            </a>
+            <a
+              href="https://christiansinthemirror.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="border border-white/30 hover:border-white text-white/80 hover:text-white px-6 py-3 text-sm font-medium tracking-wide transition-colors"
+            >
+              Official Site
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FREEDOM PARTNER CTA -->
+  <section class="py-24 bg-sand">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-brand text-sm font-medium tracking-[0.2em] uppercase mb-3">Make a Difference</p>
+      <h2 class="font-display text-4xl text-dark mb-4">Become a Freedom Partner</h2>
+      <div class="w-12 h-0.5 bg-brand mx-auto mb-8"></div>
+      <p class="text-dark/70 leading-relaxed mb-10 text-lg">
+        A monthly gift of $10 or more provides sustained, reliable support for persecuted Christians.
+        Your commitment means they are never forgotten.
+      </p>
+      <blockquote class="border-l-4 border-brand pl-6 text-left mb-10 bg-sand-dark p-6">
+        <p class="font-display text-xl text-dark italic mb-3">
+          "Have I not commanded you? Be strong and courageous. Do not be afraid; do not be discouraged,
+          for the Lord your God will be with you wherever you go."
+        </p>
+        <cite class="text-clay text-sm font-medium not-italic">— Joshua 1:9</cite>
+      </blockquote>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="/donate"
+          class="bg-brand hover:bg-brand-dark text-white px-10 py-4 text-sm font-medium tracking-wide transition-colors w-full sm:w-auto text-center"
+        >
+          Give Monthly
+        </a>
+        <a
+          href="/donate"
+          class="border border-dark/30 hover:border-brand text-dark hover:text-brand px-10 py-4 text-sm font-medium tracking-wide transition-colors w-full sm:w-auto text-center"
+        >
+          One-Time Gift
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Layout>

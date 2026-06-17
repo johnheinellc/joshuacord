@@ -1,0 +1,208 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const regions = [
+  {
+    id: 'afghanistan',
+    name: 'Afghanistan',
+    summary: 'Under Taliban rule, faith practiced in total secrecy.',
+    content: [
+      'Since the Taliban regained control of Afghanistan, Christians face one of the most extreme environments of persecution in the world. Converting from Islam to Christianity is considered apostasy, punishable by death under the Taliban\'s strict interpretation of Sharia law.',
+      'Believers have no legal protection whatsoever. There are no registered churches, no public gatherings, and no visible expression of faith allowed. Afghan Christians must practice their faith in absolute secrecy — meeting in small, hidden groups at constant risk of discovery by neighbors, family members, or the authorities.',
+      'Many have been forced to flee the country entirely, leaving behind everything they owned. Those who remain do so knowing that their faith, if discovered, could cost them their lives.',
+    ],
+  },
+  {
+    id: 'egypt',
+    name: 'Egypt',
+    summary: 'Coptic Christians carry a 2,000-year heritage under ongoing threat.',
+    content: [
+      'Egypt is home to one of the oldest Christian communities in the world — the Coptic Christians, whose tradition traces back to the Apostle Mark in the first century. Despite this deep heritage, Egyptian Christians face serious and ongoing discrimination, violence, and legal obstacles.',
+      'Coptic churches have been the target of bombings and attacks. Christians frequently face discrimination in employment, education, and housing. Converting from Islam to Christianity brings severe social, legal, and sometimes physical consequences. Building or renovating a church often requires navigating years of bureaucratic obstacles that Muslim communities do not face.',
+      'Ibitsam, one of the voices featured in the documentary <em>Christians in the Mirror</em>, represents the quiet courage of Egyptian believers who maintain their faith in the face of pressure that most Western Christians cannot imagine.',
+    ],
+  },
+  {
+    id: 'india',
+    name: 'India',
+    summary: 'Rising religious nationalism threatens minority Christians.',
+    content: [
+      'India\'s large and diverse Christian community — numbering in the tens of millions — faces increasing pressure from Hindu nationalist movements in certain states. Anti-conversion laws, present in multiple states, create a legal framework that can be used to target Christians for sharing their faith.',
+      'Churches have been attacked and vandalized. Pastors have been arrested under vague anti-conversion statutes. Christians in tribal and rural communities face social ostracism, job discrimination, and in some cases, outright violence from organized groups.',
+      'Pastor Nehemiah, featured in <em>Christians in the Mirror</em>, gives voice to the thousands of Indian believers navigating this difficult landscape — holding firm in their faith while facing pressure from the community, the government, and sometimes even their own families.',
+    ],
+  },
+  {
+    id: 'iraq',
+    name: 'Iraq',
+    summary: 'A 2,000-year Christian presence nearly erased by war and ISIS.',
+    content: [
+      'Iraq was once home to one of the most ancient Christian communities in the world, with believers living in cities like Mosul and on the Nineveh Plains for nearly two thousand years. The American-led invasion of 2003, followed by years of sectarian violence, decimated these communities. Then came ISIS.',
+      'When ISIS swept through northern Iraq in 2014, it specifically targeted Christians and other religious minorities. Hundreds of thousands were forced to flee their ancient homelands. Churches were converted into torture chambers. Ancient monasteries were destroyed. Christians faced an ultimatum: convert, pay an impossible tax, or die.',
+      'Many Iraqi Christians fled to neighboring Jordan, where organizations like Joshuacord have worked to support them. Um Rama, a Jordanian Christian featured in <em>Christians in the Mirror</em>, describes her work helping Iraqi refugees: "We don\'t work together, we live together." The rebuilding of Iraq\'s Christian community is ongoing, fragile, and in need of sustained support.',
+    ],
+  },
+  {
+    id: 'nigeria',
+    name: 'Nigeria',
+    summary: 'Thousands killed in attacks by Boko Haram and Fulani militants.',
+    content: [
+      'Nigeria has become one of the most deadly places in the world for Christians. Two distinct but overlapping threats define the crisis: the Islamist terrorist group Boko Haram in the northeast, and Fulani herdsmen militants across the Middle Belt region.',
+      'Boko Haram — whose name is often translated as "Western education is forbidden" — has targeted Christian schools, churches, and communities for over a decade. Their kidnappings and massacres have received global attention, including the abduction of the Chibok schoolgirls in 2014.',
+      'In the Middle Belt, Fulani militant attacks on predominantly Christian farming communities have left thousands dead and hundreds of villages burned. These attacks often receive less international media coverage but have resulted in staggering loss of life. Some human rights observers have described the pattern as genocidal in nature.',
+    ],
+  },
+  {
+    id: 'somalia',
+    name: 'Somalia',
+    summary: 'Among the world\'s most dangerous nations for Christians.',
+    content: [
+      'Somalia consistently ranks as one of the most dangerous countries in the world for Christians. The country has been controlled in large parts by Al-Shabaab, an Islamist militant group with a strict anti-Christian ideology.',
+      'There is virtually no visible Christian community in Somalia. Believers who exist do so in absolute hiding — known to almost no one, meeting in secret, and unable to attend any church or gathering. Apostasy — leaving Islam — is not merely socially unacceptable; it is considered by Al-Shabaab and many within the culture to be punishable by death.',
+      'International aid organizations have limited access to Somalia, making support for Christians there extraordinarily difficult. Prayer and financial support for the small numbers of secret believers who do exist is among the most important things the global church can offer.',
+    ],
+  },
+  {
+    id: 'sudan',
+    name: 'Sudan & South Sudan',
+    summary: 'Decades of persecution and displacement for believers.',
+    content: [
+      'Sudan and South Sudan represent two distinct but deeply related stories of Christian persecution. For decades, Christians in Sudan under Omar al-Bashir\'s government faced forced Islamization, slavery, aerial bombing of civilian villages, and mass atrocities — a crisis that eventually contributed to the secession of South Sudan in 2011.',
+      'South Sudan, despite being a predominantly Christian nation, has been torn apart by civil war since its founding. Millions have been displaced, churches destroyed, and communities torn apart by conflict that mixes political, ethnic, and religious dimensions.',
+      'Reverend John, whose testimony appears in <em>Christians in the Mirror</em>, represents the enduring faith of Sudanese and South Sudanese Christians who have survived decades of hardship. Their stories are a testament to the resilience of faith under conditions of extreme suffering.',
+    ],
+  },
+  {
+    id: 'syria',
+    name: 'Syria',
+    summary: 'Civil war scattered an ancient Christian presence across the Middle East.',
+    content: [
+      'Syria was once home to some of the oldest and most continuous Christian communities in the world. Cities like Damascus and Aleppo have had Christian populations since the earliest centuries of the faith — places where the disciples of Jesus walked and where the Apostle Paul was dramatically converted on the road just outside Damascus.',
+      'The Syrian civil war, which began in 2011, shattered these communities. As ISIS and various other militant factions gained ground, Christians were specifically targeted. Ancient churches were destroyed. Christians were beheaded, enslaved, and driven from their homes. The Christian population of Syria has fallen dramatically from what it was before 2011.',
+      'Antione, a Syrian Christian featured in <em>Christians in the Mirror</em>, reflects on his experience with remarkable clarity: "We don\'t work together, we live together... the best way to fight ISIS is civilization." His words capture both the depth of the crisis and the character of those who remain — not as victims only, but as witnesses.',
+    ],
+  },
+];
+---
+
+<Layout
+  title="Mission Fields"
+  description="Learn about the regions where Joshuacord works to support persecuted Christians — from Afghanistan to Syria."
+>
+
+  <!-- PAGE HERO -->
+  <section class="relative bg-dark py-28 overflow-hidden">
+    <div class="absolute inset-0 opacity-25">
+      <img
+        src="https://joshuacord.org/wp-content/uploads/2015/11/IRAQI-Children-Refugees-due-to-ISIL.jpg"
+        alt=""
+        class="w-full h-full object-cover object-top"
+      />
+    </div>
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-clay text-sm font-medium tracking-[0.2em] uppercase mb-4">Where We Work</p>
+      <h1 class="font-display text-5xl sm:text-6xl text-white mb-5">Mission Fields</h1>
+      <div class="w-12 h-0.5 bg-brand mx-auto mb-6"></div>
+      <p class="text-white/65 text-lg leading-relaxed max-w-2xl mx-auto">
+        More than 150,000 Christians face persecution for their faith each year.
+        These are the regions where that reality is most acute — and where Joshuacord stands with them.
+      </p>
+    </div>
+  </section>
+
+  <!-- FILTER + CONTENT -->
+  <section class="py-20 bg-sand">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Dropdown filter -->
+      <div class="mb-14">
+        <label for="region-filter" class="block text-dark/60 text-xs uppercase tracking-wide mb-2">
+          Filter by Region
+        </label>
+        <div class="relative inline-block">
+          <select
+            id="region-filter"
+            class="appearance-none bg-sand-dark border border-clay/40 text-dark px-5 py-3 pr-10 text-sm font-medium cursor-pointer focus:outline-none focus:border-brand"
+          >
+            <option value="all">All Mission Fields</option>
+            {regions.map((r) => (
+              <option value={r.id}>{r.name}</option>
+            ))}
+          </select>
+          <div class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2">
+            <svg class="w-4 h-4 text-dark/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Region entries -->
+      <div class="space-y-16" id="regions-container">
+        {regions.map((region) => (
+          <article
+            id={region.id}
+            class="region-entry border-l-4 border-brand pl-8"
+          >
+            <div class="mb-5">
+              <h2 class="font-display text-3xl text-dark mb-2">{region.name}</h2>
+              <p class="text-clay text-sm font-medium italic">{region.summary}</p>
+            </div>
+            <div class="space-y-4">
+              {region.content.map((para) => (
+                <p class="text-dark/70 leading-relaxed" set:html={para}></p>
+              ))}
+            </div>
+            <div class="mt-6 pt-6 border-t border-clay/20">
+              <a
+                href="/donate"
+                class="text-brand hover:text-brand-dark text-sm font-medium inline-flex items-center gap-1.5 transition-colors"
+              >
+                Support believers in {region.name}
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DONATE CTA -->
+  <section class="py-16 bg-brand">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display text-3xl text-white mb-4">Every Region Needs Your Support</h2>
+      <p class="text-white/75 mb-8 leading-relaxed">
+        Your gift can be designated to any of these mission fields or given to All Missions
+        where the need is greatest.
+      </p>
+      <a
+        href="/donate"
+        class="inline-block bg-white text-brand hover:bg-sand px-10 py-4 text-sm font-medium tracking-wide transition-colors"
+      >
+        Give to a Mission Field
+      </a>
+    </div>
+  </section>
+
+</Layout>
+
+<script>
+  const select = document.getElementById('region-filter') as HTMLSelectElement;
+  const entries = document.querySelectorAll<HTMLElement>('.region-entry');
+
+  select?.addEventListener('change', () => {
+    const value = select.value;
+
+    entries.forEach((entry) => {
+      if (value === 'all' || entry.id === value) {
+        entry.style.display = '';
+      } else {
+        entry.style.display = 'none';
+      }
+    });
+  });
+</script>
