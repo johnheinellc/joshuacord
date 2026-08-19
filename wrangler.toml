@@ -1,5 +1,9 @@
 name = "joshuacord"
 compatibility_date = "2025-01-01"
 
+# Set your Cloudflare account ID here to allow `wrangler deploy` from CI
+# Replace the placeholder with your actual account ID (e.g. "0123456789abcdef...")
+account_id = "REPLACE_WITH_YOUR_ACCOUNT_ID"
+
 [assets]
 directory = "./dist"
