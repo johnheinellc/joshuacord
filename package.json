@@ -7,7 +7,8 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build:fonts": "ttf2woff2 public/fonts/CaptureIt.ttf || true && ttf2woff public/fonts/CaptureIt.ttf public/fonts/CaptureIt.woff || true",
+    "build": "npm run build:fonts && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -15,5 +16,9 @@
     "@tailwindcss/vite": "^4.3.1",
     "astro": "^6.4.7",
     "tailwindcss": "^4.3.1"
+  },
+  "devDependencies": {
+    "ttf2woff": "^2.0.3",
+    "ttf2woff2": "^4.0.1"
   }
 }
