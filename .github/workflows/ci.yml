@@ -32,12 +32,10 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: site-dist
-          path: joshuacord_code/dist
+          path: dist
 
       - name: Deploy to Cloudflare Workers
-        if: ${{ secrets.CF_API_TOKEN != '' }}
+        if: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
         env:
-          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
-        run: |
-          cd joshuacord_code
-          npx wrangler deploy --config ./wrangler.toml
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: npx wrangler deploy --config ./wrangler.toml
