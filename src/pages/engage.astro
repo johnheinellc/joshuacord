@@ -1,0 +1,103 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Events & Engagements"
+  description="Find ways to gather, learn, advocate, and stand with persecuted Christians."
+>
+  <main class="engage-page">
+    <section id="events" class="engage-hero">
+      <div class="engage-shell">
+        <p class="engage-kicker">Gather. Learn. Stand.</p>
+        <h1>Events &amp; Engagements</h1>
+        <p class="engage-lede">
+          Join Joshuacord in turning awareness into action through gatherings, screenings,
+          prayer, and practical support for persecuted Christians.
+        </p>
+        <div class="engage-actions">
+          <a href="#advocacy-toolkit" class="engage-button engage-button--primary">Explore the Toolkit</a>
+          <a href="/donate" class="engage-button engage-button--outline">Support the Work</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="engage-section" aria-labelledby="events-heading">
+      <div class="engage-shell">
+        <p class="engage-kicker">Ways to take part</p>
+        <h2 id="events-heading">Make room for courage</h2>
+        <div class="engage-grid">
+          <article class="engage-card">
+            <span class="engage-card-number">01</span>
+            <h3>Gather your community</h3>
+            <p>Host a conversation, prayer gathering, or awareness event that keeps persecuted believers in view.</p>
+          </article>
+          <article class="engage-card">
+            <span class="engage-card-number">02</span>
+            <h3>Watch and share</h3>
+            <p>Use stories and documentary resources to help your church, school, or small group understand the cost of faith.</p>
+          </article>
+          <article class="engage-card">
+            <span class="engage-card-number">03</span>
+            <h3>Pray and respond</h3>
+            <p>Turn learning into a rhythm of prayer, advocacy, and practical support for people facing persecution.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="advocacy-toolkit" class="engage-section engage-section--toolkit" aria-labelledby="toolkit-heading">
+      <div class="engage-shell">
+        <p class="engage-kicker">Resources for action</p>
+        <h2 id="toolkit-heading">Advocacy Toolkit</h2>
+        <p class="engage-copy">
+          Practical starting points for sharing the story of the persecuted church and inviting others
+          to stand with courage, faith, and kindness.
+        </p>
+        <div class="toolkit-list">
+          <a class="toolkit-item" href="/media">
+            <span><strong>Stories and films</strong><small>Start a conversation with a story.</small></span>
+            <span aria-hidden="true">→</span>
+          </a>
+          <a class="toolkit-item" href="/case-files#faces">
+            <span><strong>Faces of the Persecuted</strong><small>Meet the people behind the headlines.</small></span>
+            <span aria-hidden="true">→</span>
+          </a>
+          <a class="toolkit-item" href="/donate">
+            <span><strong>Become a Freedom Partner</strong><small>Help turn awareness into practical aid.</small></span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .engage-page { background: #2d1810; color: #faf0dc; }
+  .engage-hero { background: #1d0f0a; padding: 7rem 1.5rem 6rem; text-align: center; }
+  .engage-section { padding: 5.5rem 1.5rem 6rem; }
+  .engage-section--toolkit { background: #24130e; scroll-margin-top: 5rem; }
+  .engage-shell { width: min(1120px, 100%); margin: 0 auto; }
+  .engage-kicker { margin: 0 0 1rem; color: #d8b36f; font-size: .78rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
+  h1, h2, h3 { margin: 0; font-family: 'Capture It', Georgia, serif; font-weight: 400; line-height: 1.1; }
+  h1 { font-size: clamp(2.8rem, 7vw, 5.8rem); }
+  h2 { font-size: clamp(2.2rem, 5vw, 4rem); }
+  h3 { font-size: clamp(1.35rem, 2vw, 1.8rem); }
+  .engage-lede, .engage-copy { max-width: 42rem; margin: 1.75rem auto 0; color: rgba(250,240,220,.82); font-size: 1.08rem; line-height: 1.75; }
+  .engage-actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 2.25rem; }
+  .engage-button { display: inline-flex; padding: .85rem 1.35rem; font-size: .9rem; font-weight: 700; text-decoration: none; }
+  .engage-button--primary { background: #c0392b; color: #fff; }
+  .engage-button--outline { border: 1px solid #d8b36f; color: #faf0dc; }
+  .engage-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  .engage-card { border-top: 3px solid #c0392b; background: #3a2117; padding: 2rem; }
+  .engage-card-number { display: block; margin-bottom: 2rem; color: #d8b36f; font-size: .8rem; letter-spacing: .15em; }
+  .engage-card p { margin: 1rem 0 0; color: rgba(250,240,220,.75); line-height: 1.7; }
+  .engage-copy { margin-left: 0; }
+  .toolkit-list { margin-top: 2.5rem; border-top: 1px solid rgba(250,240,220,.2); }
+  .toolkit-item { display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; padding: 1.35rem 0; border-bottom: 1px solid rgba(250,240,220,.2); color: #faf0dc; text-decoration: none; }
+  .toolkit-item:hover { color: #d8b36f; }
+  .toolkit-item strong, .toolkit-item small { display: block; }
+  .toolkit-item small { margin-top: .35rem; color: rgba(250,240,220,.62); }
+  @media (max-width: 700px) { .engage-grid { grid-template-columns: 1fr; } .engage-hero { padding: 5rem 1.25rem 4.5rem; } .engage-section { padding: 4rem 1.25rem 5rem; } }
+</style>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" role="img" aria-labelledby="title desc">
+  <title id="title">Photo pending</title>
+  <desc id="desc">A neutral placeholder for a case photograph.</desc>
+  <rect width="900" height="900" fill="#d8b36f"/>
+  <rect x="90" y="90" width="720" height="720" fill="#fdfbf4" stroke="#7a5c3c" stroke-width="8"/>
+  <path d="M250 610l130-150 105 105 85-95 180 200H250z" fill="#c39b57"/>
+  <circle cx="420" cy="340" r="70" fill="#c0392b" opacity=".8"/>
+  <text x="450" y="735" text-anchor="middle" font-family="Arial, sans-serif" font-size="42" letter-spacing="5" fill="#4a3524">PHOTO PENDING</text>
+</svg>

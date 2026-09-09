@@ -1,0 +1,144 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CaseFileCard from '../components/CaseFileCard.astro';
+import cards from '../data/casefiles.json';
+
+const faceCards = cards.filter((card) => card.variant === 'quote');
+const recordCards = cards.filter((card) => card.variant === 'record');
+const ctaCard = cards.find((card) => card.variant === 'cta');
+---
+
+<Layout
+  title="Faces of the Persecuted"
+  description="Stories, testimony, and case files from Christians persecuted for their faith."
+>
+  <section id="faces" class="case-hero">
+    <div class="case-shell">
+      <p class="case-kicker">Joshuacord case files</p>
+      <h1>Faces of the Persecuted</h1>
+      <p class="case-intro">
+        Every file represents a person, a family, and a story that deserves to be remembered.
+        Read their words, understand their reality, and stand with them.
+      </p>
+    </div>
+  </section>
+
+  <main class="case-page">
+    <section class="case-section" aria-labelledby="faces-heading">
+      <div class="case-shell">
+        <p class="case-kicker">The people behind the headlines</p>
+        <h2 id="faces-heading">Faces of the Persecuted</h2>
+        <div class="case-grid">
+          {faceCards.map((card) => <CaseFileCard card={card} />)}
+          {ctaCard && <CaseFileCard card={ctaCard} />}
+        </div>
+      </div>
+    </section>
+
+    <section id="case-files" class="case-section case-section--files" aria-labelledby="case-files-heading">
+      <div class="case-shell">
+        <p class="case-kicker">Names withheld. Stories retained.</p>
+        <h2 id="case-files-heading">Redacted Case Files</h2>
+        <p class="case-section-intro">
+          Some details are withheld to protect people still at risk. The redactions do not make
+          these stories less real; they remind us that courage often carries a cost.
+        </p>
+        <div class="case-grid">
+          {recordCards.map((card) => <CaseFileCard card={card} />)}
+          {ctaCard && <CaseFileCard card={ctaCard} />}
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .case-hero {
+    padding: 7rem 1.5rem 6rem;
+    background: #1d0f0a;
+    color: #faf0dc;
+    text-align: center;
+  }
+
+  .case-page {
+    background: #2d1810;
+    color: #faf0dc;
+  }
+
+  .case-section {
+    padding: 5.5rem 1.5rem 6.5rem;
+    scroll-margin-top: 5rem;
+  }
+
+  .case-section--files {
+    background: #24130e;
+  }
+
+  .case-shell {
+    width: min(1120px, 100%);
+    margin: 0 auto;
+  }
+
+  .case-kicker {
+    margin: 0 0 1rem;
+    color: #e74c3c;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .case-hero .case-kicker {
+    color: #d8b36f;
+  }
+
+  h1,
+  h2 {
+    margin: 0;
+    font-family: 'Capture It', Georgia, serif;
+    font-weight: 400;
+    line-height: 1.1;
+  }
+
+  h1 {
+    font-size: clamp(2.7rem, 7vw, 5.7rem);
+  }
+
+  h2 {
+    font-size: clamp(2.2rem, 5vw, 4rem);
+  }
+
+  .case-intro,
+  .case-section-intro {
+    max-width: 42rem;
+    margin: 1.75rem auto 0;
+    font-size: 1.08rem;
+    line-height: 1.75;
+  }
+
+  .case-intro {
+    color: rgba(250, 240, 220, 0.78);
+  }
+
+  .case-section-intro {
+    margin-left: 0;
+    color: rgba(250, 240, 220, 0.86);
+  }
+
+  .case-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+    gap: clamp(1.5rem, 4vw, 3rem);
+    margin-top: 3rem;
+  }
+
+  @media (max-width: 640px) {
+    .case-hero {
+      padding: 5rem 1.25rem 4.5rem;
+    }
+
+    .case-section {
+      padding: 4rem 1.25rem 5rem;
+    }
+  }
+</style>

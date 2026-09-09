@@ -1,21 +1,10 @@
 @import "tailwindcss";
 
-/* CaptureIt headline font (consolidated) */
+/* Capture It headline font */
 @font-face {
-  font-family: 'CaptureIt';
-  src: url('/fonts/CaptureIt.woff2') format('woff2'),
-       url('/fonts/CaptureIt.woff') format('woff'),
-       url('/fonts/CaptureIt.ttf') format('truetype');
+  font-family: 'Capture It';
+  src: url('/fonts/CaptureIt.ttf') format('truetype');
   font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'CaptureIt';
-  src: url('/fonts/CaptureIt.woff2') format('woff2'),
-       url('/fonts/CaptureIt.woff') format('woff'),
-       url('/fonts/CaptureIt.ttf') format('truetype');
-  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
@@ -48,13 +37,12 @@
   }
 
   h1, h2, h3, h4 {
-    font-family: var(--font-display);
+    font-family: 'Capture It', var(--font-display);
     line-height: 1.2;
   }
 
-  /* Apply CaptureIt directly to the main display headings */
-  h1, .font-display {
-    font-family: 'CaptureIt', var(--font-display) !important;
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Capture It', var(--font-display) !important;
   }
 
   .globe-shell {

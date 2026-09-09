@@ -1,0 +1,158 @@
+[
+  {
+    "variant": "record",
+    "caseNo": "03",
+    "fileLabel": "case File / 03",
+    "eyebrow": "The Record",
+    "headline": "Headline for the report slide",
+    "fields": [
+      { "label": "Filed", "value": "Placeholder" },
+      { "label": "Region", "value": "Placeholder" },
+      { "label": "Source", "value": "[[20]]" }
+    ],
+    "body": "Body copy placeholder. Detail from the report, with identifying information withheld: [[her older brother]] and [[two others]] remain in custody.",
+    "photo": {
+      "src": "/cases/placeholder.svg",
+      "alt": "Photograph filed with case 03",
+      "caption": "Caption / location"
+    }
+  },
+  {
+    "variant": "quote",
+    "caseNo": "04",
+    "fileLabel": "File 04 / 05",
+    "eyebrow": "In Her Words",
+    "quote": "\u201cPull quote placeholder \u2014 a sentence in the subject's own words, set in Playfair.\u201d",
+    "body": "Body copy placeholder. Attribution and one line of context.",
+    "tabLabel": "Faces of the Persecuted",
+    "photo": {
+      "src": "/cases/placeholder.svg",
+      "alt": "Portrait filed with case 04",
+      "caption": "Caption"
+    }
+  },
+  {
+    "variant": "quote",
+    "caseNo": "06",
+    "fileLabel": "File 06 / 13",
+    "eyebrow": "A Life Interrupted",
+    "quote": "\u201cPull quote placeholder from a survivor's testimony.\u201d",
+    "body": "Body copy placeholder. Context for this person's story and the community standing with them.",
+    "tabLabel": "Faces of the Persecuted",
+    "photo": {
+      "src": "/cases/placeholder.svg",
+      "alt": "Portrait filed with case 06",
+      "caption": "Caption"
+    }
+  },
+  {
+    "variant": "quote",
+    "caseNo": "07",
+    "fileLabel": "File 07 / 13",
+    "eyebrow": "Still Standing",
+    "quote": "\u201cPull quote placeholder from a testimony of courage.\u201d",
+    "body": "Body copy placeholder. One line of attribution and context for the portrait.",
+    "tabLabel": "Faces of the Persecuted",
+    "photo": {
+      "src": "/cases/placeholder.svg",
+      "alt": "Portrait filed with case 07",
+      "caption": "Caption"
+    }
+  },
+  {
+    "variant": "quote",
+    "caseNo": "08",
+    "fileLabel": "File 08 / 13",
+    "eyebrow": "The Long Road Home",
+    "quote": "\u201cPull quote placeholder about hope, faith, and home.\u201d",
+    "body": "Body copy placeholder. A brief account of displacement and perseverance.",
+    "tabLabel": "Faces of the Persecuted",
+    "photo": {
+      "src": "/cases/placeholder.svg",
+      "alt": "Portrait filed with case 08",
+      "caption": "Caption"
+    }
+  },
+  {
+    "variant": "quote",
+    "caseNo": "09",
+    "fileLabel": "File 09 / 13",
+    "eyebrow": "A Witness",
+    "quote": "\u201cPull quote placeholder from a witness to the persecuted church.\u201d",
+    "body": "Body copy placeholder. A short introduction to this person and their testimony.",
+    "tabLabel": "Faces of the Persecuted",
+    "photo": {
+      "src": "/cases/placeholder.svg",
+      "alt": "Portrait filed with case 09",
+      "caption": "Caption"
+    }
+  },
+  {
+    "variant": "record",
+    "caseNo": "10",
+    "fileLabel": "case File / 10",
+    "eyebrow": "The Record",
+    "headline": "Report headline placeholder",
+    "fields": [
+      { "label": "Filed", "value": "Placeholder" },
+      { "label": "Region", "value": "Placeholder" },
+      { "label": "Source", "value": "[[18]]" }
+    ],
+    "body": "Body copy placeholder. Detail from the report, with identifying information withheld: [[the family]] remains at risk.",
+    "photo": {
+      "src": "/cases/placeholder.svg",
+      "alt": "Photograph filed with case 10",
+      "caption": "Caption / location"
+    }
+  },
+  {
+    "variant": "record",
+    "caseNo": "11",
+    "fileLabel": "case File / 11",
+    "eyebrow": "The Record",
+    "headline": "Report headline placeholder",
+    "fields": [
+      { "label": "Filed", "value": "Placeholder" },
+      { "label": "Region", "value": "Placeholder" },
+      { "label": "Source", "value": "[[22]]" }
+    ],
+    "body": "Body copy placeholder. Detail from the report, with identifying information withheld: [[the congregation]] has been displaced.",
+    "photo": {
+      "src": "/cases/placeholder.svg",
+      "alt": "Photograph filed with case 11",
+      "caption": "Caption / location"
+    }
+  },
+  {
+    "variant": "record",
+    "caseNo": "12",
+    "fileLabel": "case File / 12",
+    "eyebrow": "The Record",
+    "headline": "Report headline placeholder",
+    "fields": [
+      { "label": "Filed", "value": "Placeholder" },
+      { "label": "Region", "value": "Placeholder" },
+      { "label": "Source", "value": "[[16]]" }
+    ],
+    "body": "Body copy placeholder. Detail from the report, with identifying information withheld: [[one witness]] remains in hiding.",
+    "photo": {
+      "src": "/cases/placeholder.svg",
+      "alt": "Photograph filed with case 12",
+      "caption": "Caption / location"
+    }
+  },
+  {
+    "variant": "cta",
+    "caseNo": "13",
+    "eyebrow": "How To Help",
+    "headline": "Closing headline goes here",
+    "body": "Body copy placeholder. One short paragraph on what a supporter can do next, ending with the ask.",
+    "stamp": "Joshuacord 1:9",
+    "cta": { "label": "Become a Freedom Partner", "href": "/donate" },
+    "photo": {
+      "src": "/cases/placeholder.svg",
+      "alt": "Photograph filed with case 05",
+      "caption": "Caption"
+    }
+  }
+]

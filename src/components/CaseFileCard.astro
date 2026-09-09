@@ -1,0 +1,434 @@
+---
+/**
+ * CaseFileCard — Joshuacord case-file card.
+ *
+ * Renders one square (1:1) card with a transparent background so it floats over
+ * whatever the page background is. Three layouts, chosen by `variant`:
+ *
+ *   "record" — report slide: form fields + body copy, photo lower right
+ *   "quote"  — pull quote, snapshot top right, manila flap along the bottom
+ *   "cta"    — closing card: headline, body, Freedom Partner button, stamp
+ *
+ * All internal sizes are in `cqw` (container-query width units), so the card is
+ * an exact scale of the 1080x1080 design at any width. The parent must be sized;
+ * the card fills it.
+ *
+ * Redaction: any text field may contain [[...]] tokens. [[Chibok]] blacks out a
+ * bar the width of the word (the word never reaches the browser). [[12]] draws a
+ * bar 12 characters wide with no hidden text at all — use that when the real
+ * words must not exist in the shipped HTML.
+ */
+
+export interface CaseFile {
+  variant: "record" | "quote" | "cta";
+  caseNo?: string;
+  fileLabel?: string;   // e.g. "case File / 03"
+  eyebrow?: string;
+  headline?: string;
+  quote?: string;
+  body?: string;
+  fields?: { label: string; value: string }[];
+  photo?: { src: string; alt: string; caption?: string };
+  tabLabel?: string;    // manila tab wording (quote variant)
+  stamp?: string;       // stamp wording (cta variant)
+  cta?: { label: string; href: string };
+}
+
+interface Props { card: CaseFile }
+const { card } = Astro.props;
+
+/** Split a string on [[...]] tokens into text runs and redaction bars. */
+function redact(text = "") {
+  return text.split(/(\[\[[^\]]*\]\])/g).map((part) => {
+    if (!part.startsWith("[[")) return { bar: false, text: part, chars: 0 };
+    const inner = part.slice(2, -2);
+    const chars = /^\d+$/.test(inner) ? Number(inner) : inner.length;
+    return { bar: true, text: "", chars };
+  });
+}
+
+const f = card.fields ?? [];
+---
+
+<div class:list={["cf", `cf--${card.variant}`]}>
+  {card.variant === "record" && (
+    <>
+      <div class="cf-folder"></div>
+      <div class="cf-sheet cf-sheet-a"></div>
+      <div class="cf-sheet cf-sheet-b"></div>
+
+      <div class="cf-paper">
+        <div class="cf-meta">
+          <span>Joshuacord</span>
+          {card.fileLabel && <span>{card.fileLabel}</span>}
+        </div>
+        <div class="cf-rule"></div>
+        {card.eyebrow && <div class="cf-eyebrow">{card.eyebrow}</div>}
+        {card.headline && <h2 class="cf-h2 cf-stencil">{card.headline}</h2>}
+
+        {f.length > 0 && (
+          <dl class="cf-fields">
+            {f.map((row) => (
+              <>
+                <dt>{row.label}</dt>
+                <dd>
+                  {redact(row.value).map((p) =>
+                    p.bar ? <span class="cf-bar cf-bar--field" style={`width:${p.chars * 0.55}em`} aria-label="Redacted"></span> : p.text
+                  )}
+                </dd>
+              </>
+            ))}
+          </dl>
+        )}
+
+        {card.body && (
+          <p class="cf-body">
+            {redact(card.body).map((p) =>
+              p.bar
+                ? <span class="cf-nb"><span class="cf-bar" style={`width:${p.chars * 0.55}em`} aria-label="Redacted"></span></span>
+                : p.text
+            )}
+          </p>
+        )}
+      </div>
+
+      {card.photo && (
+        <figure class="cf-photo cf-photo--record">
+          <img src={card.photo.src} alt={card.photo.alt} />
+          {card.photo.caption && <figcaption>{card.photo.caption}</figcaption>}
+        </figure>
+      )}
+
+      {card.caseNo && <div class="cf-tab cf-tab--record">Case No. {card.caseNo}</div>}
+    </>
+  )}
+
+  {card.variant === "quote" && (
+    <>
+      <div class="cf-folder"></div>
+      <div class="cf-sheet cf-sheet-a"></div>
+
+      <div class="cf-paper">
+        {card.eyebrow && <div class="cf-eyebrow cf-stencil cf-eyebrow--quote">{card.eyebrow}</div>}
+        {card.quote && <blockquote class="cf-quote">{card.quote}</blockquote>}
+        {card.body && (
+          <p class="cf-body">
+            {redact(card.body).map((p) =>
+              p.bar
+                ? <span class="cf-nb"><span class="cf-bar" style={`width:${p.chars * 0.55}em`} aria-label="Redacted"></span></span>
+                : p.text
+            )}
+          </p>
+        )}
+        <div class="cf-meta">
+          <span class="cf-stencil cf-meta-mark">Joshuacord</span>
+          {card.fileLabel && <span>{card.fileLabel}</span>}
+        </div>
+      </div>
+
+      {card.photo && (
+        <figure class="cf-photo cf-photo--quote">
+          <img src={card.photo.src} alt={card.photo.alt} />
+          {card.photo.caption && <figcaption>{card.photo.caption}</figcaption>}
+          <span class="cf-clip" aria-hidden="true"></span>
+        </figure>
+      )}
+
+      <div class="cf-flap cf-flap--quote">
+        {card.tabLabel && <div class="cf-tab cf-tab--quote cf-stencil">{card.tabLabel}</div>}
+        <div class="cf-flap-body"></div>
+      </div>
+    </>
+  )}
+
+  {card.variant === "cta" && (
+    <>
+      <div class="cf-folder"></div>
+      <div class="cf-sheet cf-sheet-a"></div>
+      <div class="cf-sheet cf-sheet-b"></div>
+
+      <div class="cf-paper">
+        <div class="cf-meta cf-meta--narrow"><span>Joshuacord.org</span></div>
+        <div class="cf-rule cf-rule--narrow"></div>
+        {card.eyebrow && <div class="cf-eyebrow">{card.eyebrow}</div>}
+        {card.headline && <h2 class="cf-h2 cf-h2--cta cf-stencil">{card.headline}</h2>}
+        {card.body && <p class="cf-body cf-body--cta">{card.body}</p>}
+        {card.cta && <a class="cf-btn" href={card.cta.href}>{card.cta.label}</a>}
+      </div>
+
+      {card.photo && (
+        <figure class="cf-photo cf-photo--cta">
+          <img src={card.photo.src} alt={card.photo.alt} />
+          {card.photo.caption && <figcaption>{card.photo.caption}</figcaption>}
+          <span class="cf-clip" aria-hidden="true"></span>
+        </figure>
+      )}
+
+      <div class="cf-flap cf-flap--cta">
+        {card.caseNo && <div class="cf-tab cf-tab--cta">Case No. {card.caseNo}</div>}
+        <div class="cf-flap-body">
+          {card.stamp && <div class="cf-stamp">{card.stamp}</div>}
+        </div>
+      </div>
+    </>
+  )}
+</div>
+
+<style>
+  /* Every length below is cqw: 1cqw = 1% of card width = 10.8px in the 1080 design. */
+  .cf {
+    container-type: inline-size;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: transparent;
+    font-family: "Inter", system-ui, sans-serif;
+    color: #2d1810;
+  }
+  .cf * { box-sizing: border-box; }
+
+  .cf-folder,
+  .cf-sheet { position: absolute; border-radius: 0.741cqw; }
+  .cf-folder { background: #c39b57; box-shadow: 0 3.7cqw 6.11cqw -2.59cqw rgba(45, 24, 16, 0.45); }
+  .cf-sheet { border-radius: 0.278cqw; box-shadow: 0 1.3cqw 2.4cqw -1.3cqw rgba(45, 24, 16, 0.35); }
+  .cf-sheet-a { background: #fbf6e9; }
+  .cf-sheet-b { background: #f3e9d2; }
+
+  .cf-paper {
+    position: absolute;
+    background: #fdfbf4;
+    border: 1px solid rgba(122, 92, 60, 0.18);
+    border-radius: 0.278cqw;
+    box-shadow: 0 1.85cqw 3.7cqw -1.67cqw rgba(45, 24, 16, 0.35);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .cf-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 2.222cqw;
+    font-size: 1.667cqw;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #7a5c3c;
+  }
+  .cf-meta--narrow { max-width: 40.741cqw; }
+  .cf-meta-mark { font-size: 2.037cqw; }
+  .cf-rule { height: 1px; background: rgba(122, 92, 60, 0.28); }
+  .cf-rule--narrow { max-width: 44.444cqw; }
+
+  .cf-eyebrow {
+    font-size: 1.852cqw;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #c0392b;
+  }
+  .cf-eyebrow--quote { max-width: 37.037cqw; font-size: 2.037cqw; }
+
+  .cf-h2 {
+    margin: 0;
+    max-width: 75.926cqw;
+    font-weight: 600;
+    font-size: 4.815cqw;
+    line-height: 1.06;
+    text-wrap: pretty;
+  }
+  .cf-h2--cta { max-width: 46.296cqw; font-size: 6.111cqw; }
+  .cf-stencil { font-family: "Capture It", "Playfair Display", Georgia, serif; }
+
+  .cf-quote {
+    margin: 0;
+    max-width: 59.259cqw;
+    font-family: "Playfair Display", Georgia, serif;
+    font-weight: 500;
+    font-size: 5.37cqw;
+    line-height: 1.18;
+    color: #2d1810;
+    text-wrap: pretty;
+  }
+
+  .cf-fields {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 2.222cqw;
+    row-gap: 1.296cqw;
+    max-width: 55.556cqw;
+    margin: 0;
+    font-size: 1.944cqw;
+  }
+  .cf-fields dt {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    color: #7a5c3c;
+  }
+  .cf-fields dd {
+    margin: 0;
+    border-bottom: 1px dotted rgba(122, 92, 60, 0.5);
+  }
+
+  .cf-body {
+    margin: 0;
+    max-width: 55.556cqw;
+    font-size: 2.222cqw;
+    line-height: 1.6;
+    color: #4a3524;
+    text-wrap: pretty;
+  }
+  .cf-body--cta { max-width: 46.296cqw; }
+
+  /* Redaction bars */
+  .cf-nb { white-space: nowrap; }
+  .cf-bar {
+    display: inline-block;
+    height: 0.85em;
+    background: #2d1810;
+    border-radius: 0.185cqw;
+    vertical-align: middle;
+  }
+  .cf-bar--field { height: 1em; }
+
+  /* Polaroid */
+  .cf-photo {
+    position: absolute;
+    margin: 0;
+    background: #fff;
+    border-radius: 0.185cqw;
+    box-shadow: 0 2.22cqw 3.7cqw -1.67cqw rgba(45, 24, 16, 0.5);
+  }
+  .cf-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .cf-photo figcaption {
+    position: absolute;
+    left: 1.481cqw;
+    right: 1.481cqw;
+    font-size: 1.481cqw;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #7a5c3c;
+    text-align: center;
+  }
+  .cf-clip {
+    position: absolute;
+    border: 0.463cqw solid #8a8f98;
+    box-shadow: 0 0.37cqw 0.74cqw rgba(45, 24, 16, 0.3);
+  }
+
+  /* Manila flap + tabs */
+  .cf-flap { position: absolute; }
+  .cf-flap-body {
+    position: absolute;
+    inset: 0;
+    background: #d8b36f;
+    border-radius: 0.926cqw;
+    box-shadow: 0 -1.3cqw 3.15cqw -1.85cqw rgba(45, 24, 16, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 4.63cqw;
+  }
+  .cf-tab {
+    position: absolute;
+    background: #d8b36f;
+    display: flex;
+    align-items: center;
+    font-size: 1.759cqw;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #4a3524;
+  }
+
+  .cf-stamp {
+    transform: rotate(-6deg);
+    border: 0.463cqw solid rgba(192, 57, 43, 0.7);
+    color: rgba(192, 57, 43, 0.82);
+    padding: 1.111cqw 2.222cqw;
+    border-radius: 0.37cqw;
+    font-family: "Capture It", "Playfair Display", serif;
+    font-size: 3.889cqw;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .cf-btn {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    background: #c0392b;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 2.037cqw;
+    padding: 1.3cqw 2.78cqw;
+    border-radius: 999px;
+    transition: background 180ms ease-out;
+  }
+  .cf-btn:hover { background: #922b21; }
+
+  /* ---- record ---- */
+  .cf--record .cf-folder { top: 6.481cqw; left: 4.815cqw; right: 4.815cqw; bottom: 5.556cqw; transform: rotate(1.6deg); }
+  .cf--record .cf-sheet-a { top: 5.37cqw; left: 6.852cqw; right: 4.074cqw; bottom: 8.889cqw; transform: rotate(-2.4deg); }
+  .cf--record .cf-sheet-b { top: 6.667cqw; left: 5.741cqw; right: 6.481cqw; bottom: 7.778cqw; transform: rotate(0.9deg); }
+  .cf--record .cf-paper {
+    top: 8.148cqw; left: 7.407cqw; right: 7.407cqw; bottom: 9.63cqw;
+    transform: rotate(-1deg);
+    padding: 5.37cqw 5.741cqw 27.778cqw;
+    gap: 2.037cqw;
+  }
+  .cf--record .cf-photo { bottom: 10.37cqw; right: 8.889cqw; width: 29.63cqw; padding: 1.481cqw 1.481cqw 5.185cqw; transform: rotate(-4.4deg); }
+  .cf--record .cf-photo img { height: 20cqw; }
+  .cf--record .cf-photo figcaption { bottom: 1.667cqw; }
+  .cf--record .cf-tab--record {
+    left: 7.407cqw; top: 93.61cqw; width: 30.556cqw; height: 5.185cqw;
+    border-radius: 0 0 0.926cqw 0.926cqw; padding: 0 2.593cqw; transform: rotate(1.6deg);
+  }
+
+  /* ---- quote ---- */
+  .cf--quote .cf-folder { top: 9.63cqw; left: 4.444cqw; right: 4.444cqw; bottom: 4.815cqw; transform: rotate(-1.8deg); }
+  .cf--quote .cf-sheet-a { top: 8.333cqw; left: 6.481cqw; right: 5.37cqw; bottom: 9.259cqw; background: #f6edda; transform: rotate(2deg); }
+  .cf--quote .cf-paper {
+    top: 12.037cqw; left: 8.889cqw; right: 8.889cqw; bottom: 13.889cqw;
+    transform: rotate(0.5deg);
+    padding: 6.481cqw 7.037cqw;
+    justify-content: center;
+    gap: 2.593cqw;
+  }
+  .cf--quote .cf-body { max-width: 57.407cqw; font-size: 2.13cqw; }
+  .cf--quote .cf-photo { top: 5.185cqw; right: 9.63cqw; width: 23.148cqw; padding: 1.296cqw 1.296cqw 4.259cqw; transform: rotate(6.5deg); }
+  .cf--quote .cf-photo img { height: 20.556cqw; }
+  .cf--quote .cf-photo figcaption { bottom: 1.481cqw; font-size: 1.389cqw; }
+  .cf--quote .cf-clip { top: -1.852cqw; left: 2.963cqw; width: 4.074cqw; height: 8.519cqw; border-radius: 2.13cqw; transform: rotate(-12deg); }
+  .cf--quote .cf-flap { bottom: 4.815cqw; left: 4.444cqw; right: 4.444cqw; height: 13.889cqw; transform: rotate(-1.8deg); }
+  .cf--quote .cf-tab--quote {
+    top: -4.63cqw; left: 35.185cqw; width: 36.019cqw; height: 5.833cqw;
+    border-radius: 0.926cqw 0.926cqw 0 0; padding: 0 2.407cqw;
+  }
+
+  /* ---- cta ---- */
+  .cf--cta .cf-folder { top: 8.148cqw; left: 5.185cqw; right: 5.185cqw; bottom: 5.185cqw; transform: rotate(2.4deg); }
+  .cf--cta .cf-sheet-a { top: 7.037cqw; left: 6.481cqw; right: 7.407cqw; bottom: 8.889cqw; transform: rotate(-1.6deg); }
+  .cf--cta .cf-sheet-b { top: 8.333cqw; left: 7.963cqw; right: 5.741cqw; bottom: 7.593cqw; transform: rotate(0.8deg); }
+  .cf--cta .cf-paper {
+    top: 10.185cqw; left: 8.519cqw; right: 8.519cqw; bottom: 16.667cqw;
+    transform: rotate(-0.6deg);
+    padding: 5.926cqw 6.296cqw;
+    gap: 2.222cqw;
+  }
+  .cf--cta .cf-photo { top: 6.111cqw; right: 5.926cqw; width: 24.815cqw; padding: 1.481cqw 1.481cqw 5cqw; transform: rotate(6.8deg); }
+  .cf--cta .cf-photo img { height: 21.852cqw; }
+  .cf--cta .cf-photo figcaption { bottom: 1.667cqw; }
+  .cf--cta .cf-clip { top: -2.037cqw; left: 3.148cqw; width: 4.259cqw; height: 8.889cqw; border-radius: 2.222cqw; transform: rotate(-10deg); }
+  .cf--cta .cf-flap { bottom: 5.185cqw; left: 5.185cqw; right: 5.185cqw; height: 18.519cqw; transform: rotate(2deg); }
+  .cf--cta .cf-tab--cta {
+    top: -4.63cqw; left: 4.444cqw; width: 27.778cqw; height: 5cqw;
+    border-radius: 0.926cqw 0.926cqw 0 0; padding: 0 2.407cqw;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cf-btn { transition: none; }
+  }
+</style>

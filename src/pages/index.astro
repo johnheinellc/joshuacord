@@ -1,40 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import CaseFileCard from '../components/CaseFileCard.astro';
+import cards from '../data/casefiles.json';
 
 const carouselSlides = [
-  {
-    bg: 'var(--color-dark)',
-    eyebrow: 'Ribbon Campaign',
-    eyebrowColor: 'var(--color-clay)',
-    color: 'var(--color-sand)',
-    title: 'Persecuted But Not Forgotten',
-    copy: 'Display the scarlet ribbon on your car or door to remind the world of the persecuted church.',
-    cta: 'Get a Ribbon',
-    img: 'https://joshuacord.org/wp-content/uploads/2014/08/JC-Logo-header3.png',
-    imgRound: false,
-  },
-  {
-    bg: 'var(--color-brand)',
-    eyebrow: 'Documentary',
-    eyebrowColor: 'rgba(255,255,255,.75)',
-    color: '#fff',
-    title: 'Christians in the Mirror',
-    copy: 'Stories of courage and faith in the face of persecution — from Aleppo and northern Iraq to India, South Sudan, and Egypt.',
-    cta: 'Watch the Film',
-    img: 'https://joshuacord.org/wp-content/uploads/2014/08/JC-Logo-header3.png',
-    imgRound: true,
-  },
-  {
-    bg: 'var(--color-dark)',
-    eyebrow: 'Annual Event',
-    eyebrowColor: 'var(--color-brand)',
-    color: 'var(--color-sand)',
-    title: 'Joshua 1:9 Freedom Run',
-    copy: 'Our annual 5K in Tampa raises funds and awareness for persecuted Christians. “Be strong and courageous.”',
-    cta: 'Register to Run',
-    img: null,
-    imgRound: false,
-  },
+  ...cards.filter((card) => card.variant === 'quote'),
+  ...cards.filter((card) => card.variant === 'record'),
 ];
 ---
 
@@ -43,23 +14,11 @@ const carouselSlides = [
   <main class="flex flex-col lg:flex-row lg:items-start lg:gap-10">
     <aside class="w-full lg:w-[25%] lg:sticky lg:top-[108px] min-h-[28rem] lg:min-h-[calc(100vh-108px)]">
       <section id="vertical-carousel" aria-roledescription="carousel" class="relative h-full overflow-hidden rounded-[32px] shadow-[0_30px_80px_-40px_rgba(45,24,16,0.6)]">
-        <div id="vertical-carousel-track" class="h-full transition-transform duration-500 ease-out">
-          {carouselSlides.map((slide) => (
-            <div class="h-full min-h-[calc(100vh-108px)] p-8" style={`background: ${slide.bg};`}>
-              <div class="h-full flex flex-col justify-between gap-6 text-left">
-                <div>
-                  <div class="text-[13px] font-semibold uppercase tracking-[0.12em] mb-4" style={`color: ${slide.eyebrowColor};`}>
-                    {slide.eyebrow}
-                  </div>
-                  <h2 class="font-display" style={`font-size: clamp(20px, 1.8vw, 32px); color: ${slide.color}; line-height: 1.1; margin: 0; font-weight: 400;`}>{slide.title}</h2>
-                  <p class="mt-6" style={`color: ${slide.color}; opacity: 0.85; line-height: 1.7; max-width: 520px;`}>{slide.copy}</p>
-                </div>
-                {slide.img ? (
-                  <img src={slide.img} alt="" class={slide.imgRound ? 'max-h-44 max-w-full rounded-full' : 'max-h-44 max-w-full rounded-[20px]'} />
-                ) : null}
-                <button class="mt-6 inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-6 py-3 text-sm font-semibold tracking-wide text-sand transition hover:bg-white/20" style={`color: ${slide.color}; border-color: ${slide.color};`}>
-                  {slide.cta}
-                </button>
+        <div id="vertical-carousel-track" class="flex flex-col transition-transform duration-500 ease-out" style={`height: ${carouselSlides.length * 100}%;`}>
+          {carouselSlides.map((card) => (
+            <div class="flex min-h-0 shrink-0 items-center justify-center bg-dark p-3" style={`height: ${100 / carouselSlides.length}%;`}>
+              <div class="w-full max-w-[560px]">
+                <CaseFileCard card={card} />
               </div>
             </div>
           ))}
@@ -528,7 +487,7 @@ const carouselSlides = [
     function updateCarousel(index) {
       if (!track) return;
       currentSlide = ((index % slideCount) + slideCount) % slideCount;
-      track.style.transform = `translateY(-${currentSlide * 100}%)`;
+      track.style.transform = `translateY(-${currentSlide * (100 / slideCount)}%)`;
       dots.forEach((dot, dotIndex) => {
         dot.classList.toggle('bg-sand/100', dotIndex === currentSlide);
         dot.classList.toggle('bg-sand/50', dotIndex !== currentSlide);
