@@ -137,6 +137,21 @@ const regions = [
         </div>
       </div>
 
+      <div class="mission-photo-grid" aria-label="Joshuacord mission photography">
+        <figure>
+          <img src="/images/mission/india-children.jpg" alt="Children playing cricket in India" loading="lazy" />
+          <figcaption>India</figcaption>
+        </figure>
+        <figure>
+          <img src="/images/mission/iraq-refugee-camp.jpg" alt="Christian refugees gathered in a camp in Iraq" loading="lazy" />
+          <figcaption>Iraq</figcaption>
+        </figure>
+        <figure>
+          <img src="/images/mission/lebanon-mass.jpg" alt="Syriac Orthodox worshippers gathered for Mass in Beirut" loading="lazy" />
+          <figcaption>Lebanon</figcaption>
+        </figure>
+      </div>
+
       <!-- Region entries -->
       <div class="space-y-16" id="regions-container">
         {regions.map((region) => (
@@ -189,6 +204,44 @@ const regions = [
   </section>
 
 </Layout>
+
+<style>
+  .mission-photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin: 0 0 4rem;
+  }
+
+  .mission-photo-grid figure {
+    margin: 0;
+    background: #2d1810;
+    color: #faf0dc;
+  }
+
+  .mission-photo-grid img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  .mission-photo-grid figcaption {
+    padding: 0.75rem 1rem;
+    color: rgba(250, 240, 220, 0.72);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 640px) {
+    .mission-photo-grid {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+  }
+</style>
 
 <script>
   const select = document.getElementById('region-filter') as HTMLSelectElement;

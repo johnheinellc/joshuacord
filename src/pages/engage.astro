@@ -25,23 +25,29 @@ import Layout from '../layouts/Layout.astro';
     <section class="engage-section" aria-labelledby="events-heading">
       <div class="engage-shell">
         <p class="engage-kicker">Ways to take part</p>
-        <h2 id="events-heading">Make room for courage</h2>
+        <h2 id="events-heading">Equip your congregation to stand with the persecuted Church</h2>
         <div class="engage-grid">
-          <article class="engage-card">
+          <button class="engage-card engage-card--interactive" type="button" id="screening-trigger" aria-haspopup="dialog" aria-controls="screening-dialog">
             <span class="engage-card-number">01</span>
-            <h3>Gather your community</h3>
-            <p>Host a conversation, prayer gathering, or awareness event that keeps persecuted believers in view.</p>
-          </article>
-          <article class="engage-card">
+            <h3>Host a Church Screening</h3>
+            <p>Bring Christians in the Mirror to your church for a special viewing, small-group study, or
+missions-focused event.</p>
+            <span class="engage-card-link">Learn how to host a screening <span aria-hidden="true">→</span></span>
+          </button>
+          <button class="engage-card engage-card--interactive" type="button" id="resources-trigger" aria-haspopup="dialog" aria-controls="resources-dialog">
             <span class="engage-card-number">02</span>
-            <h3>Watch and share</h3>
-            <p>Use stories and documentary resources to help your church, school, or small group understand the cost of faith.</p>
-          </article>
-          <article class="engage-card">
+            <h3>Sermon & Teaching Resources</h3>
+            <p>Use Christians in the Mirror as a catalyst for sermons, Bible studies, and discipleship
+conversations about the persecuted Church.</p>
+            <span class="engage-card-link">View available resources <span aria-hidden="true">→</span></span>
+          </button>
+          <button class="engage-card engage-card--interactive" type="button" id="speaking-trigger" aria-haspopup="dialog" aria-controls="speaking-dialog">
             <span class="engage-card-number">03</span>
-            <h3>Pray and respond</h3>
-            <p>Turn learning into a rhythm of prayer, advocacy, and practical support for people facing persecution.</p>
-          </article>
+            <h3>Invite Joshuacord team to speak at your church</h3>
+            <p>We would love to partner with you more deeply. Joshuacord team is available to visit your
+church or ministry</p>
+            <span class="engage-card-link">Explore speaking engagements <span aria-hidden="true">→</span></span>
+          </button>
         </div>
       </div>
     </section>
@@ -71,6 +77,62 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </section>
   </main>
+
+  <dialog id="screening-dialog" class="screening-dialog" aria-labelledby="screening-dialog-title">
+    <div class="screening-dialog__content">
+      <button id="screening-close" class="screening-dialog__close" type="button" aria-label="Close screening information">×</button>
+      <p class="engage-kicker">Host a Church Screening</p>
+      <h2 id="screening-dialog-title">Why host a screening?</h2>
+      <ul>
+        <li>Raise awareness of the persecuted Church in your congregation</li>
+        <li>Spark prayer, compassion, and practical support for believers under threat</li>
+        <li>Inspire giving, volunteering, and advocacy through Joshuacord’s on-the-ground work</li>
+      </ul>
+      <h3>How it works</h3>
+      <ol>
+        <li><strong>Request a screening:</strong> Let our team know your church’s interest and preferred dates.</li>
+        <li><strong>Choose your format:</strong> In-person event, small-group showing, or online watch party.</li>
+        <li><strong>Use our discussion guide:</strong> Help your congregation process what they’ve seen and respond in prayer and action.</li>
+      </ol>
+    </div>
+  </dialog>
+
+  <dialog id="resources-dialog" class="screening-dialog" aria-labelledby="resources-dialog-title">
+    <div class="screening-dialog__content">
+      <button id="resources-close" class="screening-dialog__close" type="button" aria-label="Close available resources">×</button>
+      <p class="engage-kicker">Sermon &amp; Teaching Resources</p>
+      <h2 id="resources-dialog-title">Available resources</h2>
+      <ul>
+        <li><strong>Sermon slide deck</strong> – Ready-to-use slides with key themes, Scripture, film clips, and discussion questions.</li>
+        <li><strong>Small-group discussion guide</strong> – For Sunday school, home groups, or youth ministry.</li>
+        <li><strong>Prayer guides</strong> – Focused prayers for the countries and families featured in the film.</li>
+        <li><strong>Promotional graphics</strong> – Shareable images for your website, social media, and church announcements.</li>
+      </ul>
+      <p class="screening-dialog__note">These materials are free for church use. If you’d like additional custom resources for your context, reach out and our team will be glad to help.</p>
+    </div>
+  </dialog>
+
+  <dialog id="speaking-dialog" class="screening-dialog" aria-labelledby="speaking-dialog-title">
+    <div class="screening-dialog__content">
+      <button id="speaking-close" class="screening-dialog__close" type="button" aria-label="Close speaking engagement information">×</button>
+      <p class="engage-kicker">Speaking Engagements</p>
+      <h2 id="speaking-dialog-title">Partner with Joshuacord</h2>
+      <p class="screening-dialog__note">We would love to partner with you more deeply. Joshuacord team is available to visit your church for:</p>
+      <ul>
+        <li>Pastor-to-pastor conversations about integrating the persecuted Church into your ministry vision</li>
+        <li>Leadership briefings for elders, deacons, and ministry teams</li>
+        <li>Guest messages for Sunday services, missions conferences, or special events</li>
+        <li>Onsite screening + Q&amp;A with Joshuacord representatives</li>
+      </ul>
+      <p class="screening-dialog__note">These visits can be in person or virtual, depending on your location and needs.</p>
+      <h3>To request an onsite discussion</h3>
+      <ul>
+        <li>Email us at <a href="mailto:churchpartners@joshuacord.org">churchpartners@joshuacord.org</a></li>
+        <li>Include your church name, location, preferred dates, and the type of engagement you’re seeking (screening, sermon series, leadership meeting, etc.)</li>
+      </ul>
+      <p class="screening-dialog__note">Our team will follow up to explore how we can best serve your church and congregation.</p>
+    </div>
+  </dialog>
 </Layout>
 
 <style>
@@ -90,14 +152,55 @@ import Layout from '../layouts/Layout.astro';
   .engage-button--primary { background: #c0392b; color: #fff; }
   .engage-button--outline { border: 1px solid #d8b36f; color: #faf0dc; }
   .engage-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
-  .engage-card { border-top: 3px solid #c0392b; background: #3a2117; padding: 2rem; }
+  .engage-card { border: 0; border-top: 3px solid #c0392b; background: #3a2117; padding: 2rem; text-align: left; }
+  .engage-card--interactive { width: 100%; color: inherit; cursor: pointer; transition: background 180ms ease-out, transform 180ms ease-out; }
+  .engage-card--interactive:hover, .engage-card--interactive:focus-visible { background: #4a281c; transform: translateY(-3px); outline: 2px solid #d8b36f; outline-offset: 4px; }
   .engage-card-number { display: block; margin-bottom: 2rem; color: #d8b36f; font-size: .8rem; letter-spacing: .15em; }
   .engage-card p { margin: 1rem 0 0; color: rgba(250,240,220,.75); line-height: 1.7; }
+  .engage-card-link { display: block; margin-top: 1.5rem; color: #d8b36f; font-size: .85rem; font-weight: 700; }
   .engage-copy { margin-left: 0; }
   .toolkit-list { margin-top: 2.5rem; border-top: 1px solid rgba(250,240,220,.2); }
   .toolkit-item { display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; padding: 1.35rem 0; border-bottom: 1px solid rgba(250,240,220,.2); color: #faf0dc; text-decoration: none; }
   .toolkit-item:hover { color: #d8b36f; }
   .toolkit-item strong, .toolkit-item small { display: block; }
   .toolkit-item small { margin-top: .35rem; color: rgba(250,240,220,.62); }
+  .screening-dialog { width: min(680px, calc(100% - 2rem)); max-height: min(780px, calc(100vh - 2rem)); padding: 0; border: 0; background: transparent; color: #2d1810; }
+  .screening-dialog::backdrop { background: rgba(29,15,10,.78); }
+  .screening-dialog__content { position: relative; max-height: min(780px, calc(100vh - 2rem)); overflow-y: auto; padding: clamp(2rem, 5vw, 3.5rem); background: #faf0dc; box-shadow: 0 1.5rem 4rem rgba(0,0,0,.4); }
+  .screening-dialog__content h2 { margin-bottom: 1.25rem; }
+  .screening-dialog__content h3 { margin: 2rem 0 1rem; font-size: clamp(1.5rem, 3vw, 2rem); }
+  .screening-dialog__content ul, .screening-dialog__content ol { margin: 0; padding-left: 1.4rem; color: rgba(45,24,16,.82); line-height: 1.7; }
+  .screening-dialog__content li + li { margin-top: .75rem; }
+  .screening-dialog__note { margin: 2rem 0 0; color: rgba(45,24,16,.82); line-height: 1.7; }
+  .screening-dialog__close { position: absolute; top: 1rem; right: 1rem; width: 2.25rem; height: 2.25rem; border: 1px solid rgba(45,24,16,.25); border-radius: 50%; background: transparent; color: #2d1810; font-size: 1.5rem; line-height: 1; cursor: pointer; }
+  .screening-dialog__close:hover, .screening-dialog__close:focus-visible { background: #2d1810; color: #faf0dc; }
   @media (max-width: 700px) { .engage-grid { grid-template-columns: 1fr; } .engage-hero { padding: 5rem 1.25rem 4.5rem; } .engage-section { padding: 4rem 1.25rem 5rem; } }
 </style>
+
+<script>
+  const screeningTrigger = document.getElementById('screening-trigger');
+  const screeningDialog = document.getElementById('screening-dialog');
+  const screeningClose = document.getElementById('screening-close');
+  const resourcesTrigger = document.getElementById('resources-trigger');
+  const resourcesDialog = document.getElementById('resources-dialog');
+  const resourcesClose = document.getElementById('resources-close');
+  const speakingTrigger = document.getElementById('speaking-trigger');
+  const speakingDialog = document.getElementById('speaking-dialog');
+  const speakingClose = document.getElementById('speaking-close');
+
+  screeningTrigger?.addEventListener('click', () => screeningDialog?.showModal());
+  screeningClose?.addEventListener('click', () => screeningDialog?.close());
+  screeningDialog?.addEventListener('click', (event) => {
+    if (event.target === screeningDialog) screeningDialog.close();
+  });
+  resourcesTrigger?.addEventListener('click', () => resourcesDialog?.showModal());
+  resourcesClose?.addEventListener('click', () => resourcesDialog?.close());
+  resourcesDialog?.addEventListener('click', (event) => {
+    if (event.target === resourcesDialog) resourcesDialog.close();
+  });
+  speakingTrigger?.addEventListener('click', () => speakingDialog?.showModal());
+  speakingClose?.addEventListener('click', () => speakingDialog?.close());
+  speakingDialog?.addEventListener('click', (event) => {
+    if (event.target === speakingDialog) speakingDialog.close();
+  });
+</script>

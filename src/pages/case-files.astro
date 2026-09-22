@@ -1,11 +1,76 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import CaseFileCard from '../components/CaseFileCard.astro';
+import CaseFileSpread from '../components/CaseFileSpread.astro';
 import cards from '../data/casefiles.json';
 
 const faceCards = cards.filter((card) => card.variant === 'quote');
 const recordCards = cards.filter((card) => card.variant === 'record');
 const ctaCard = cards.find((card) => card.variant === 'cta');
+
+function toSpread(card) {
+  const maxParagraphChars = (card.fields?.length ?? 0) > 0 ? 1000 : 900;
+  const fields = card.fields ?? [];
+  const paragraphs = [];
+  let paragraphChunk = '';
+
+  (card.body ?? '').split('\n\n').forEach((paragraph) => {
+    paragraph.split(/\s+/).forEach((word) => {
+      const next = paragraphChunk ? `${paragraphChunk} ${word}` : word;
+      if (paragraphChunk && next.length > maxParagraphChars) {
+        paragraphs.push(paragraphChunk);
+        paragraphChunk = word;
+      } else {
+        paragraphChunk = next;
+      }
+    });
+    paragraphChunk += '\n\n';
+  });
+
+  if (paragraphChunk.trim()) paragraphs.push(paragraphChunk.trim());
+
+  const bodyPages = [];
+
+  for (let index = 0; index < paragraphs.length; index += 1) {
+    bodyPages.push([paragraphs[index]]);
+  }
+
+  const fieldPages = [];
+  for (let index = 0; index < fields.length; index += 6) {
+    fieldPages.push(fields.slice(index, index + 6));
+  }
+
+  const pages = fields.length > 0
+    ? [{
+        kicker: 'Joshuacord',
+        eyebrow: card.eyebrow,
+        headline: card.headline,
+        fields: fieldPages[0],
+        paragraphs: [],
+      }, ...fieldPages.slice(1).map((pageFields) => ({ kicker: 'Continued', fields: pageFields, paragraphs: [] })), ...bodyPages.map((pageParagraphs) => ({ kicker: 'Continued', paragraphs: pageParagraphs }))]
+    : bodyPages.map((pageParagraphs, index) => ({
+        kicker: index === 0 ? 'Joshuacord' : 'Continued',
+        eyebrow: index === 0 ? card.eyebrow : undefined,
+        headline: index === 0 ? card.headline : undefined,
+        paragraphs: pageParagraphs,
+      }));
+
+  if (pages.length === 0) {
+    pages.push({
+      kicker: 'Joshuacord',
+      eyebrow: card.eyebrow,
+      headline: card.headline,
+      fields,
+      paragraphs: [],
+    });
+  }
+
+  return {
+    caseNo: card.caseNo ?? 'unknown',
+    photo: card.photo,
+    pages,
+  };
+}
 ---
 
 <Layout
@@ -44,12 +109,14 @@ const ctaCard = cards.find((card) => card.variant === 'cta');
           these stories less real; they remind us that courage often carries a cost.
         </p>
         <div class="case-grid">
-          {recordCards.map((card) => <CaseFileCard card={card} />)}
+          {recordCards.map((card) => <CaseFileCard card={card} triggerId={`case-${card.caseNo}`} />)}
           {ctaCard && <CaseFileCard card={ctaCard} />}
         </div>
       </div>
     </section>
   </main>
+
+  {recordCards.map((card) => <CaseFileSpread data={toSpread(card)} />)}
 </Layout>
 
 <style>
@@ -131,6 +198,7 @@ const ctaCard = cards.find((card) => card.variant === 'cta');
     gap: clamp(1.5rem, 4vw, 3rem);
     margin-top: 3rem;
   }
+
 
   @media (max-width: 640px) {
     .case-hero {
