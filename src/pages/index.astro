@@ -17,9 +17,13 @@ const carouselSlides = [
         <div id="vertical-carousel-track" class="flex flex-col transition-transform duration-500 ease-out" style={`height: ${carouselSlides.length * 100}%;`}>
           {carouselSlides.map((card) => (
             <div class="flex min-h-0 shrink-0 items-center justify-center bg-dark p-3" style={`height: ${100 / carouselSlides.length}%;`}>
-              <div class="w-full max-w-[560px]">
+              <a
+                href={`/case-files#case-${card.caseNo}`}
+                class="block w-full max-w-[560px] transition-opacity duration-200 hover:opacity-90"
+                aria-label={`View case file ${card.caseNo}`}
+              >
                 <CaseFileCard card={card} />
-              </div>
+              </a>
             </div>
           ))}
         </div>

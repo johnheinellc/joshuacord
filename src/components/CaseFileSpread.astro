@@ -368,13 +368,27 @@ const pageCount = data.pages.length;
 
 <script>
   // Open on card click, close on button / backdrop / Escape.
+  function openById(id: string) {
+    const spread = document.querySelector<HTMLElement>(`.cfs[data-case="${id}"]`);
+    if (!spread) return;
+    spread.setAttribute("data-open", "true");
+    document.body.style.overflow = "hidden";
+  }
+
   document.querySelectorAll<HTMLElement>("[data-cfs-open]").forEach((trigger) => {
     trigger.addEventListener("click", () => {
       const id = trigger.dataset.cfsOpen;
-      document.querySelector<HTMLElement>(`.cfs[data-case="${id}"]`)?.setAttribute("data-open", "true");
-      document.body.style.overflow = "hidden";
+      if (id) openById(id);
     });
   });
+
+  // Deep-linked from elsewhere (e.g. the homepage carousel): #case-19 opens that case's popup.
+  function openFromHash() {
+    const id = window.location.hash.slice(1);
+    if (id) openById(id);
+  }
+  openFromHash();
+  window.addEventListener("hashchange", openFromHash);
 
   function closeAll() {
     document.querySelectorAll<HTMLElement>(".cfs").forEach((el) => el.setAttribute("data-open", "false"));
