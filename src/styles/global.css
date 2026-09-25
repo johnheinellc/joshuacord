@@ -60,6 +60,18 @@
     border: 1px solid rgba(45,24,16,0.08);
   }
 
+  /* Mobile/tablet only: keep the globe circular on narrow screens and let
+     vertical swipes scroll the page while horizontal drags spin the globe. */
+  @media (max-width: 1023px) {
+    .globe-shell {
+      min-height: 0;
+    }
+
+    .globe-canvas {
+      touch-action: pan-y;
+    }
+  }
+
   .globe-ring {
     position: absolute;
     inset: 0;

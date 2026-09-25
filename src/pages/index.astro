@@ -12,7 +12,7 @@ const carouselSlides = [
 <Layout title="Home" description="Joshuacord stands with persecuted Christians around the world through prayer, practical aid, and advocacy.">
 
   <main class="flex flex-col lg:flex-row lg:items-start lg:gap-10">
-    <aside class="w-full lg:w-[25%] lg:sticky lg:top-[108px] min-h-[28rem] lg:min-h-[calc(100vh-108px)]">
+    <aside class="w-full h-[26rem] sm:h-[34rem] lg:h-auto lg:w-[25%] lg:sticky lg:top-[108px] min-h-[26rem] sm:min-h-[34rem] lg:min-h-[calc(100vh-108px)]">
       <section id="vertical-carousel" aria-roledescription="carousel" class="relative h-full overflow-hidden rounded-[32px] shadow-[0_30px_80px_-40px_rgba(45,24,16,0.6)]">
         <div id="vertical-carousel-track" class="flex flex-col transition-transform duration-500 ease-out" style={`height: ${carouselSlides.length * 100}%;`}>
           {carouselSlides.map((card) => (
