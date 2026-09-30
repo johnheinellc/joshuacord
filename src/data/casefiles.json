@@ -8,8 +8,151 @@
     "body": "Body copy placeholder. Attribution and one line of context.",
     "tabLabel": "Faces of the Persecuted",
     "photo": {
-      "src": "/cases/placeholder.svg",
-      "alt": "Portrait filed with case 04",
+      "src": "/cases/faces/case-04.jpg",
+      "alt": "A woman in a black headscarf being filmed for an interview inside a church",
+      "caption": "Caption",
+      "focus": "50% 60%"
+    }
+  },
+  {
+    "variant": "quote",
+    "caseNo": "05",
+    "fileLabel": "File 05 / 05",
+    "eyebrow": "In His Words",
+    "quote": "“Pull quote placeholder — a sentence in the subject's own words, set in Playfair.”",
+    "body": "Body copy placeholder. Attribution and one line of context.",
+    "tabLabel": "Faces of the Persecuted",
+    "photo": {
+      "src": "/cases/faces/case-05.jpg",
+      "alt": "Portrait of a man in a checked shirt in front of a red cross painted on a blue wall",
+      "caption": "Caption"
+    }
+  },
+  {
+    "variant": "quote",
+    "caseNo": "06",
+    "fileLabel": "File 06",
+    "eyebrow": "In Her Words",
+    "quote": "“Pull quote placeholder — a sentence in the subject's own words, set in Playfair.”",
+    "body": "Body copy placeholder. Attribution and one line of context.",
+    "tabLabel": "Faces of the Persecuted",
+    "photo": {
+      "src": "/cases/faces/case-06.jpg",
+      "alt": "A woman in a black headscarf looks at the camera as a child in a red shirt touches her chin",
+      "caption": "Caption",
+      "focus": "40% 50%"
+    }
+  },
+  {
+    "variant": "quote",
+    "caseNo": "07",
+    "fileLabel": "File 07",
+    "eyebrow": "In Her Words",
+    "quote": "“Pull quote placeholder — a sentence in the subject's own words, set in Playfair.”",
+    "body": "Body copy placeholder. Attribution and one line of context.",
+    "tabLabel": "Faces of the Persecuted",
+    "photo": {
+      "src": "/cases/faces/case-07.jpg",
+      "alt": "A woman in a blue dress and white cape stands beside a man in a black T-shirt in a courtyard",
+      "caption": "Caption"
+    }
+  },
+  {
+    "variant": "quote",
+    "caseNo": "08",
+    "fileLabel": "File 08",
+    "eyebrow": "In Her Words",
+    "quote": "“Pull quote placeholder — a sentence in the subject's own words, set in Playfair.”",
+    "body": "Body copy placeholder. Attribution and one line of context.",
+    "tabLabel": "Faces of the Persecuted",
+    "photo": {
+      "src": "/cases/faces/case-08.jpg",
+      "alt": "A smiling girl in a denim and floral dress stands in front of a camp shelter",
+      "caption": "Caption"
+    }
+  },
+  {
+    "variant": "quote",
+    "caseNo": "09",
+    "fileLabel": "File 09",
+    "eyebrow": "In Her Words",
+    "quote": "“Pull quote placeholder — a sentence in the subject's own words, set in Playfair.”",
+    "body": "Body copy placeholder. Attribution and one line of context.",
+    "tabLabel": "Faces of the Persecuted",
+    "photo": {
+      "src": "/cases/faces/case-09.jpg",
+      "alt": "Portrait of a smiling woman in a floral top",
+      "caption": "Caption"
+    }
+  },
+  {
+    "variant": "quote",
+    "caseNo": "10",
+    "fileLabel": "File 10",
+    "eyebrow": "In Her Words",
+    "quote": "“Pull quote placeholder — a sentence in the subject's own words, set in Playfair.”",
+    "body": "Body copy placeholder. Attribution and one line of context.",
+    "tabLabel": "Faces of the Persecuted",
+    "photo": {
+      "src": "/cases/faces/case-10.jpg",
+      "alt": "Women standing among red chairs, arms raised in worship",
+      "caption": "Caption"
+    }
+  },
+  {
+    "variant": "quote",
+    "caseNo": "11",
+    "fileLabel": "File 11",
+    "eyebrow": "In Her Words",
+    "quote": "“Pull quote placeholder — a sentence in the subject's own words, set in Playfair.”",
+    "body": "Body copy placeholder. Attribution and one line of context.",
+    "tabLabel": "Faces of the Persecuted",
+    "photo": {
+      "src": "/cases/faces/case-11.jpg",
+      "alt": "A young girl in a yellow dress with a gold hair clip, a hand resting on her shoulder",
+      "caption": "Caption"
+    }
+  },
+  {
+    "variant": "quote",
+    "caseNo": "12",
+    "fileLabel": "File 12",
+    "eyebrow": "In Her Words",
+    "quote": "“Pull quote placeholder — a sentence in the subject's own words, set in Playfair.”",
+    "body": "Body copy placeholder. Attribution and one line of context.",
+    "tabLabel": "Faces of the Persecuted",
+    "photo": {
+      "src": "/cases/faces/case-12.jpg",
+      "alt": "A smiling boy with curly hair in a patterned shirt",
+      "caption": "Caption"
+    }
+  },
+  {
+    "variant": "quote",
+    "caseNo": "14",
+    "fileLabel": "File 14",
+    "eyebrow": "In Her Words",
+    "quote": "“Pull quote placeholder — a sentence in the subject's own words, set in Playfair.”",
+    "body": "Body copy placeholder. Attribution and one line of context.",
+    "tabLabel": "Faces of the Persecuted",
+    "photo": {
+      "src": "/cases/faces/case-14.jpg",
+      "alt": "A man in glasses and a blue shirt worships with his hand on his chest, eyes closed",
+      "caption": "Caption",
+      "focus": "50% 25%"
+    }
+  },
+  {
+    "variant": "quote",
+    "caseNo": "16",
+    "fileLabel": "File 16",
+    "eyebrow": "In Her Words",
+    "quote": "“Pull quote placeholder — a sentence in the subject's own words, set in Playfair.”",
+    "body": "Body copy placeholder. Attribution and one line of context.",
+    "tabLabel": "Faces of the Persecuted",
+    "photo": {
+      "src": "/cases/faces/case-16.jpg",
+      "alt": "Close-up portrait of a boy with brown eyes",
       "caption": "Caption"
     }
   },
@@ -34,8 +177,8 @@
     ],
     "body": "XXXXXXXXXXX was born in 19 X in XXXXXXXXXXX, in the XXXXXXXXXXX clan, where they teach the Islamic religion and enforce strict obedience to every rule. He attended school only through grade 6 and later began working. Because of the war in Syria, he went to work in XXXXXX for XX years. He later returned and married his wife, XXXXXXXXXXX, after which they moved to the XXXXXXXXXXX area of Lebanon.\n\nTheir first child was born XXXXXXXXXXX, but the baby cried and shouted continuously, day and night, without any apparent reason. They took him from one doctor to another without any improvement. They even took the baby to a Muslim sheikh, who gave them materials described as prayers—though they may have been curses—but again there were no results, and the crying worsened.\n\nOne day, XXXXXXXXXXX spoke with a Christian man about his baby boy. The man advised him to visit a Christian lady who often prayed to God for healing. When they went to her, she prayed for their son, and for the first time in his life, the baby slept through the night. From then on, XXXXXXXXXXX began visiting this Christian lady’s house every day before sleeping to pray with her. When XXXXXXXXXXX thanked her, she told him that she had done nothing herself; she had only prayed in the name of Jesus. They were amazed that Jesus could love them so deeply without any conditions.\n\nBecause his parents and relatives learned that they were attending Christian meetings, they moved to live in XXXXXXXXXXX. There, they began attending church meetings and having Bible studies with Pastor XXXXXXXXXXX. They accepted Jesus in their hearts as Savior and were baptized.\n\nWhen their parents and relatives heard that they had become Christians and were serving in the church, persecution began. Their parents pressured them to divorce, especially targeting his wife, insisting that she return to her parents or they would be killed.\n\nThe XXXXXXXXXXX XXXXXXXXXXX and the clans issued a statement in XXXXXXXXXXX, declaring that if they were arrested, they would be sent back to XXXXXXXXXXX. They stated it would be an honor to shed their blood because they were traitors to the Islamic religion and were encouraging other Muslims to become Christians. This came after several attempts to convince him to return to Islam, which he refused.\n\nNow XXXXXXXXXXX and his family remain in danger. Their relatives are searching for them in order to force their return to Syria, and they are pressuring his wife to divorce him, take the children, and go back to XXXXXXXXXXX.\n\nSupport needed\nXXXXXXXXXXX XXXXXXXXXXX XXXXXXXXXXX XXXXXXXXXXX XXXXXXXXXXX XXXXXXXXXXX XXXXXXXX\nXXX XXXXXXXXXXX XXXXXXXXXXX XXXXXXXXXXX XXXXXXXXXXX XXXXXXXXXXX XXXXXXXXXXX XXXX\nXXXXXXX XXXXXXXXXXX XXXXXXXXXXX XXXXXXXXXXX XXXXXXXXXXX XXXXXXXXXXX XXXXXXXXXXX\nXXXXXXXXXXX XXXXXXXXXXX XXXXXXXXXXX XXXXXXXXXXX XXXXXXXXXXX XXXXXXXXXXX XXXXXXXX\nXXX XXXXXXXXXXX\n\nReviewed By: __________________________________________________\nXXXXXXXXXXX",
     "photo": {
-      "src": "/cases/placeholder.svg",
-      "alt": "Redacted case photograph for case 15",
+      "src": "/cases/silhouettes/man-profile.png",
+      "alt": "Silhouette in place of a photograph; identity withheld for case 15",
       "caption": "Location withheld"
     }
   },
@@ -58,8 +201,8 @@
     ],
     "body": "XXXXXXXXXXXX was born in XXXXXXXXXXXX. Like everyone around him, he was taught the Muslim religion and prayed regularly. However, as he grew up, he faced many difficulties, and his childhood was marked by pain because of his father. His father was married to multiple wives; XXXXXXXXXXXX was the son of the first wife. Unfortunately, his father left his mother and children and married another woman. XXXXXXXXXXXX remained with his mother and suffered greatly until he became an adult.\n\nHe began to dislike his Muslim religion because of these painful childhood memories and how he was treated. He saw God as unfair if this was what the Muslim faith taught him to live by, he felt that there must be another truth. He was conflicted as he was taught that everyone would go to hell, with no mercy, while others felt proud of what they were doing. He thought, “If this is what Prophet Muhammad wants us to live, it is not fair.” So he began exploring other religions to try to seek the truth and answers to his questions. He learned about teaching from Judaism, Buddhism, and Christianity and he started watching Christian channels on TV.\n\nWhen he heard the message that God says, “Love your enemies,” he was surprised. He also heard about salvation—that God sent His only Son to save us and that God loves us deeply. He believed in Christ in secret and joined online Bible studies from 2016 to 2018 without telling his wife, who was a teacher instructing Muslim women about their religion while wearing a black hijab and black clothes. Two years later, his wife asked him, “Who are you?” because of the changes she saw in his behavior at home; he had become a different person.\n\nXXXXXXXXXXXX told her that he had become a Christian and a follower of Christ, and that he would not deny Him before anyone.\n\nAfter a while, XXXXXXXXXXXX had back surgery, and XXXXXXXXXXXX took care of her. She became curious about Christians and wondered why they stayed away from them and did not read their Bible. She found her husband’s Bible and began reading it. She prayed that if the Bible was written by God’s Spirit, God would show her the truth. She then had a dream-like vision in which Paul was holding a pen and writing on a piece of wood, while a person dressed in white, with a face shining like the sun, told Paul to write everything He was saying to him. She woke up shaking from what she had seen. A month later, she gave her heart to Jesus in XXXXXXXXXXXX and took off her hijab.\n\nAt that time, their relatives learned that XXXXXXXXXXXX and XXXXXXXXXXXX had become Christians and began to persecute them, threatening to kill them if they did not deny their new faith.\n\nThey met an Iraqi brother named XXXXXXXXXXXX, who helped them escape to XXXXXXXXXXXX. Meanwhile, their parents attacked their house to kill them but found no one there, as their cousins are members of the Iraqi XXXXXXXXXXXX in XXXXXXXXXXXX.\n\nAfter arriving in XXXXXXXXXXXX in XXXXXXXXXXXX, XXXXXXXXXXXX brother called her and threatened that they could easily come to XXXXXXXXXXXX and kill them there. XXXXXXXXXXXX parents also called and threatened them, saying, “Your price is one bullet, and we can reach you easily.”\n\nNow they live in XXXXXXXXXXXX as XXXXXXXXXXXX. XXXXXXXXXXXX is studying XXXXXXXXXXXX online with XXXXXXXXXXXX, and they attend the XXXXXXXXXXXX church in XXXXXXXXXXXX. They were baptized on XXXXXXXXXXXX. Their children go to school with the help of XXXXXXXXXXXX, and the family continues to trust God for their protection and provision.\n\nSupport needed\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\nXXXXXXXXX\n\nReviewed By: __________________________________________________\nXXXXXXXXXXXXXXXXXXXXXXXX",
     "photo": {
-      "src": "/cases/placeholder.svg",
-      "alt": "Redacted case photograph for case 19",
+      "src": "/cases/silhouettes/couple.png",
+      "alt": "Silhouette in place of a photograph; identity withheld for case 19",
       "caption": "Location withheld"
     }
   },
@@ -82,8 +225,8 @@
     ],
     "body": "XXXXXXXXXXX was born in XXXXXXXXXXX. He was very faithful to Islamic traditions, including prayer and fasting. In XXXXXXXXXXX, he saw his father reading the Bible and heard the verse, “Love your enemies.” His father was an open-minded person who was curious to learn about other religions.\n\nXXXXXXXXXXX began reading the Bible as well. After a month, while watching The Kingdom Channel on TV with Pastor David Jeremiah and hearing about God’s love and salvation, he prayed the sinner’s prayer with Pastor XXXXXXXXXXX and accepted Jesus as Savior. This was a profound shift for him, as in Islam there is no “love your enemies”; he had been taught to kill.\n\nHis family began to persecute him because of his faith in Jesus, and family members cursed him. He started telling his friends in coffee shops and his relatives about Jesus, about how He loves everyone and about salvation. Even his XXXXXXXXXXX brought a sheikh to try to convince him to return to Islam.\n\nOne day, while sitting in a coffee shop, his friends attacked and beat him when they learned he was telling everyone that the Holy Spirit lives in his heart. Religious men also spoke with him, attempting to change his mind through threats.\n\nIn XXXXXXXXXXX, they came to XXXXXXXXXXX because of the war in Syria. He continued to talk about Jesus in XXXXXXXXXXX, where nearly everyone is Muslim. Each time he spoke about Jesus, people argued with him. One day, some of his friends called XXXXXXXXXXX, and he was arrested and held for almost 15 hours. During the investigation, he was threatened and accused of causing problems in the area.\n\nA year later, his uncle attacked and beat him. Around the same time, a man called him and said, “It has been almost 10 years that you have been among us. We are watching you. We know everything about you, where you live, what you work. Be careful and stop talking about Jesus, or we will kill you.”\n\nAfter these threats, he left XXXXXXXXXXX and came to XXXXXXXXXXX to be safer and farther away from those people. He remains bold for the Lord but concerned for his life.\n\nSupport needed\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n\nReviewed By: __________________________________________________\nXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
     "photo": {
-      "src": "/cases/placeholder.svg",
-      "alt": "Redacted case photograph for case 20",
+      "src": "/cases/silhouettes/person-front.png",
+      "alt": "Silhouette in place of a photograph; identity withheld for case 20",
       "caption": "Location withheld"
     }
   },
@@ -107,8 +250,8 @@
     ],
     "body": "XXXXXXXXXXXX was born in XXXXXXXXXXXX, in XXXXXXXXXXXX. When she was almost XXXXX years old, she was raped by her XXXXXXXXXXXX. From that time until her mother’s death, her mother hated her. She was forced to marry when she was XXXXX years old, even though her hobby was XXXXXXXXXXXX XXXXXXXXXXXX. Her husband attempted to poison her on multiple occasions in efforts to kill her. They eventually divorced, but after the divorce, her siblings began to beat her, calling her a shame to the family because of the divorce. She attempted suicide XXXXX times and suffered from deep internal conflict.\n\nOne day, while sleeping, she had a vision of someone wearing white cloth. She laid her head on Him and began to cry. He lifted her head, wiped away her tears, and said, “I am Jesus Christ.” From that moment, Jesus gave her inner peace, even though her circumstances remained the same. She had never heard of Jesus before this encounter.\n\nXXXXXXXXXXX began seeking the truth in XXXXXXXXXXX. She heard about XXXXXXXXXXX on YouTube and came to believe in Jesus Christ. After praying, she was struck by the realization that her whole life had been full of lies, but Jesus opened her eyes and heart. After obtaining her own Bible, she began studying Scripture and attending XXXXXXXXXXX Church in Syria.\n\nOne of her friends noticed the change in her life and asked about it. XXXXXXXXXXX did not deny Jesus; instead, she told her the truth, that she had become a Christian and had been baptized on XXXXXXXXXXX. Her friend then informed XXXXXXXXXXX brothers (after they returned from XXXXXXXXXXX) about her faith, and persecution began. They started to beat her and forbade her from attending any church. On one occasion, a supernatural power held her brother’s XXXXXXXXXXX back, leaving both of them afraid and surprised. XXXXXXXXXXXXXXXXXXXXXX knew that this power was Jesus protecting her from those harmful hands.\n\nA few days later, XXXXXXXXXXX decided to flee from her parents and, with the help of her pastor, made her way to XXXXXXXXXXX. After arriving in Lebanon at the end of XXXXXXXXXXX, XXXXXXXXXXX changed her name and is now known as XXXXXXXXXXX.\n\nHer brothers have circulated her pictures among relatives and friends in XXXXXXXXXXX, telling them to kill her if they find her.\n\nSupport needed\nXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX\nXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX\nXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX\nXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX\n\nReviewed By: __________________________________________________\nXXXXXXXXXXXXXXXX",
     "photo": {
-      "src": "/cases/placeholder.svg",
-      "alt": "Redacted case photograph for case 21",
+      "src": "/cases/silhouettes/woman-loose-hair.png",
+      "alt": "Silhouette in place of a photograph; identity withheld for case 21",
       "caption": "Location withheld"
     }
   },
@@ -130,8 +273,8 @@
     ],
     "body": "XXXXXXXXXXXX was born into a Christian believer family in XXXXXXXXXXXX, XXXXXXXXXXXX. After graduating, he went to XXXXXXXXXXXX to study XXXXXXXXXXXX in XXXXXXXXXXXX, with the goal of serving the Lord and planting churches in Cairo.\n\nWithin a few years, the number of church members grew significantly, prompting the congregation to purchase a larger apartment in a different location in XXXXXXXXXXXX. While the pastor and some members were renovating the new space, they were confronted by a man named XXXXXXXXXXXX XXXXXXXXXXXX, who cursed and insulted the pastor over the church’s opening in that area. He threatened to kill the pastor if he continued the renovation, stating he was against having a church there.\n\nAfter an investigation, the case was transferred to the public prosecution office because it involved religious issues. During the investigation, Pastor XXXXXXXXXXXX XXXXXXXXXXXX learned that XXXXXXXXXXXX was the leader of XXXXXXXXXXXX in that area and that his friends included influential lawyers. As a result, the pastor was jailed for several days and forced to sign a document stating that the danger had passed and that reconciliation had been achieved between them.\n\nFrom that time on, Pastor XXXXXXXXXXXX and his family were repeatedly pursued and threatened with death if he did not back off or sell the church. They were attacked on multiple occasions, with threats that his family would be kidnapped and slaughtered in front of him. His wife and children were also attacked and nearly kidnapped, but bystanders intervened and they were rescued.\n\nPastor XXXXXXXXXXXX relocated his family to a new area for safety, but soon received a phone call from XXXXXXXXXXXX informing him that they knew exactly where he was living. He and his family quickly found another location and began planning another move. While moving, he was struck by a car on the street. The driver waited to see if he was alive, and passengers took him to the hospital. He had a deep head wound requiring sutures and a fracture in his XXXXXXXXXXXX.\n\nThe doctor suspected the accident was intentional, recognizing that the pastor was a targeted Christian leader who had received threats from XXXXXXXXXXXX, the leader of XXXXXXXXXXXX. Because of this, the doctor was afraid to perform surgery, provided only first aid, and arranged for him to be transferred to a different hospital. The visit was kept off the record, with no formal medical report issued. A few days later, XXXXXXXXXXXX called him, saying he was lucky to be alive but warning that next time would be his last.\n\nXXXXXXXXXXXX returned to XXXXXXXXXXXX and met with leaders from the XXXXXXXXXXXX churches, who advised him to leave the country. Applications were submitted to XXXXXXXXXXXX, XXXXXXXXXXXX, and XXXXXXXXXXXX, but all were refused. Instead, the family entered XXXXXXXXXXXX as visitors and have remained there since XXXXXXXXXXXX.\n\nEven after relocating again, thieves attempted to break into their home multiple times, leaving threats around the property, which forced another move.\n\nIn XXXXXXXXXXXXX, their next child was born in the city of XXXXXXXXXXXX with multiple physical issues requiring several surgeries. Unfortunately, the child’s condition has only worsened. The family urgently needs prayer for miraculous healing for their child and for God’s continued protection from those who are targeting and threatening their lives.\n\nSupport needed\nXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX\nXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX\nXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX\nXXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX\n\nReviewed By: __________________________________________________\nXXXXXXXXXXXXXXXX",
     "photo": {
-      "src": "/cases/placeholder.svg",
-      "alt": "Redacted case photograph for case 22",
+      "src": "/cases/silhouettes/man-profile-flipped.png",
+      "alt": "Silhouette in place of a photograph; identity withheld for case 22",
       "caption": "Location withheld"
     }
   },
@@ -152,8 +295,8 @@
     ],
     "body": "XXXXXXXXXXX works in a XXXXXXXXXXX.\n\nXXXXXXXXX X and his wife were born in XXXXXXXXX X. XXXXXXXXX X is Christian, while XXXXXXXXX X comes from a Muslim background.\n\nIn XXXXXXXXX X, XXXXXXXXX X came with his parents to XXXXXXXXX X and has lived here since. During the war in Syria, XXXXXXXXX X came to XXXXXXXXX X in XXXXXXXXX X. They married quietly without informing their parents, as XXXXXXXXX X had become a Christian and wished to be married in a church.\n\nWhen her parents learned that she had married a Christian man, and his family learned that he had married a Muslim woman, both sets of parents abandoned the couple. He was disowned for disobeying his parents, and she was disowned for becoming a Christian and bringing dishonor to her family and tribe.\n\nHer family offered to pay her brother to find and kill her in XXXXXXXXX X, but he refused. After being visited by Pastor XXXXXXXXX X and hearing the gospel, he ultimately accepted Jesus as his Savior.\n\nThe couple began attending Pastor XXXXXXXXX X’s church in XXXXXXXXX X and accepted Jesus as Savior. XXXXXXXXX X was baptized in XXXXXXXXX X and now serves with the worship group at the church.\n\nThey have two sons, XXXXXXXXX X and XXXXXXXXX X. The central problem is that they do not have official identification and were unable to register their family in XXXXXXXXX X or XXXXXXXXX X. Their paperwork in the main city, XXXXXXXXX X, still lists them as single, so the XXXXXXXXX X government refuses to recognize their marriage due to religious issues. As a result, their children are registered anonymously in XXXXXXXXX X with no passport, no ID, and no documents.\n\nThey remain afraid of XXXXXXXXX X parents’ continued attempts to pay others to find and kill XXXXXXXXX because of the shame they believe she has brought upon the family.\n\nSupport needed\nXXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX\nXXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX\nXXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX\nXXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX\nXXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX XXXXXXXXX\n\nReviewed By: __________________________________________________\nXXXXXXXXX",
     "photo": {
-      "src": "/cases/placeholder.svg",
-      "alt": "Redacted case photograph for case 24",
+      "src": "/cases/silhouettes/couple-flipped.png",
+      "alt": "Silhouette in place of a photograph; identity withheld for case 24",
       "caption": "Location withheld"
     }
   },
@@ -173,8 +316,8 @@
     ],
     "body": "XXXXXXXXXXX and XXXXXXXXXXX were born in Syria, from a Muslim background.\n\nIn XXXXXXXXXXX, XXXXXXXXXXX came to XXXXXXXXXXX fleeing the XXXXXXXXXXX regime after being kidnapped and beaten on his XXXXXXXXXXX and XXXXXXXXXXX. He underwent XXXXXXXXXXX operations in order to heal.\n\nIn XXXXXXXXXXX, his wife XXXXXXXXXXX came with their children to XXXXXXXXXXX. They became curious to learn more about Christianity and started attending XXXXXXXXXXX church in XXXXXXXXXXX. XXXXXXXXXXX accepted Jesus as Savior in XXXXXXXXXXX and was baptized in XXXXXXXXXXX after regularly attending Bible studies at the XXXXXXXXXXX church. XXXXXXXXXXX also accepted Jesus in XXXXXXXXXXX and was baptized in XXXXXXXXXXX at Pastor XXXXXXXXXXX church in XXXXXXXXXXX. She continues to attend meetings and Bible studies with her children to this day. However, she has not told her parents that she has become a Christian. Her parents, who live in XXXXXXXXXXX, are forcing her to cover her XXXXXXXXXXX head with a hijab, and XXXXXXXXXXX is afraid they will investigate and discover that she and her family have become Christians and continue the targeting from the XXXXXXXXXXX.\n\nThey have been registered with the XXXXXXXXXXX in XXXXXXXXXXX as asylum seekers and applied to XXXXXXXXXXX in XXXXXXXXXXX. However, after many years, there are still no updates as of today.\n\nSupport needed\nXXXXXXXXXXX XXXXXXXXXXX XXXXXXXXXXX XXXXXXXXXXX XXXXXXXXXXX XXXXXXXXXXX XXXXXXXXXXX\nXXXXXXXXXXX XXXXXXXXXXX XXXXXXXXXXX XXXXXXXXXXX XXXXXXXXXXX XXXXXXXXXXX XXXXXXXXXXX\nXXXXXXXXXXX XXXXXXXXXXX XXXXXXXXXXX XXXXXXXXXXX XXXXXXXXXXX XXXXXXXXXXX XXXXXXXXXXX\nXXXXXXXXXXX XXXXXXXXXXX XXXXXXXXXXX XXXXXXXXXXX XXXXXXXXXXX XXXXXXXXXXX XXXXXXXXXXX\n\nReviewed By: __________________________________________________\nXXXXXXXXXXX",
     "photo": {
-      "src": "/cases/placeholder.svg",
-      "alt": "Redacted case photograph for case 25",
+      "src": "/cases/silhouettes/woman-bun.png",
+      "alt": "Silhouette in place of a photograph; identity withheld for case 25",
       "caption": "Location withheld"
     }
   },

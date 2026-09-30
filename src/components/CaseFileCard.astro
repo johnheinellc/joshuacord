@@ -6,7 +6,12 @@
  * whatever the page background is. Three layouts, chosen by `variant`:
  *
  *   "record" — report slide: form fields + body copy, photo lower right
- *   "quote"  — pull quote, snapshot top right, manila flap along the bottom
+ *   "quote"  — Faces of the Persecuted: large polaroid + pull quote, manila flap
+ *              along the bottom. Portrait photos sit tall on the left with the
+ *              quote beside them; landscape photos run across the top with the
+ *              quote below. Orientation is read from the image file at build
+ *              time (override with photo.orientation); photo.focus sets the
+ *              crop (CSS object-position, e.g. "50% 30%") to keep the face in frame.
  *   "cta"    — closing card: headline, body, Freedom Partner button, stamp
  *
  * All internal sizes are in `cqw` (container-query width units), so the card is
@@ -28,7 +33,13 @@ export interface CaseFile {
   quote?: string;
   body?: string;
   fields?: { label: string; value: string }[];
-  photo?: { src: string; alt: string; caption?: string };
+  photo?: {
+    src: string;
+    alt: string;
+    caption?: string;
+    focus?: string;                              // object-position for the crop
+    orientation?: "portrait" | "landscape";      // quote variant; auto-detected if omitted
+  };
   tabLabel?: string;    // manila tab wording (quote variant)
   stamp?: string;       // stamp wording (cta variant)
   cta?: { label: string; href: string };
@@ -51,9 +62,24 @@ function redact(text = "") {
 }
 
 const f = card.fields ?? [];
+
+/** Quote cards lay out around the photo's shape; read it from the file in /public at build time. */
+async function photoOrientation(photo: CaseFile["photo"]) {
+  if (!photo) return "portrait";
+  if (photo.orientation) return photo.orientation;
+  try {
+    const { default: sharp } = await import("sharp");
+    const { width = 1, height = 1 } = await sharp(`public${photo.src}`).metadata();
+    return width > height ? "landscape" : "portrait";
+  } catch {
+    return "portrait";
+  }
+}
+const orientation = card.variant === "quote" ? await photoOrientation(card.photo) : undefined;
+const photoStyle = card.photo?.focus ? `object-position:${card.photo.focus}` : undefined;
 ---
 
-<div class:list={["cf", `cf--${card.variant}`]}>
+<div class:list={["cf", `cf--${card.variant}`, orientation && `cf--quote-${orientation}`]}>
   {(card.variant === "record" || card.variant === "redacted") && (
     <>
       <div class="cf-folder"></div>
@@ -131,7 +157,7 @@ const f = card.fields ?? [];
 
       {card.photo && (
         <figure class="cf-photo cf-photo--quote">
-          <img src={card.photo.src} alt={card.photo.alt} />
+          <img src={card.photo.src} alt={card.photo.alt} style={photoStyle} loading="lazy" decoding="async" />
           {card.photo.caption && <figcaption>{card.photo.caption}</figcaption>}
           <span class="cf-clip" aria-hidden="true"></span>
         </figure>
@@ -407,10 +433,27 @@ const f = card.fields ?? [];
     gap: 2.593cqw;
   }
   .cf--quote .cf-body { max-width: 57.407cqw; font-size: 2.13cqw; }
-  .cf--quote .cf-photo { top: 5.185cqw; right: 9.63cqw; width: 23.148cqw; padding: 1.296cqw 1.296cqw 4.259cqw; transform: rotate(6.5deg); }
-  .cf--quote .cf-photo img { height: 20.556cqw; }
+  .cf--quote .cf-photo { padding: 1.296cqw 1.296cqw 4.259cqw; }
+  .cf--quote .cf-photo img { height: auto; }
   .cf--quote .cf-photo figcaption { bottom: 1.481cqw; font-size: 1.389cqw; }
   .cf--quote .cf-clip { top: -1.852cqw; left: 2.963cqw; width: 4.074cqw; height: 8.519cqw; border-radius: 2.13cqw; transform: rotate(-12deg); }
+
+  /* Portrait: tall 4:5 polaroid on the left, quote in the right-hand column. */
+  .cf--quote-portrait .cf-photo { top: 6.296cqw; left: 6.667cqw; width: 40.741cqw; transform: rotate(-3deg); }
+  .cf--quote-portrait .cf-photo img { aspect-ratio: 4 / 5; }
+  .cf--quote-portrait .cf-paper { padding: 6.481cqw 5.926cqw 12.037cqw 41.667cqw; gap: 2.222cqw; }
+  .cf--quote-portrait .cf-quote { font-size: 3.889cqw; }
+  .cf--quote-portrait .cf-eyebrow--quote,
+  .cf--quote-portrait .cf-body { max-width: none; }
+  .cf--quote-portrait .cf-meta { flex-wrap: wrap; row-gap: 0.741cqw; }
+
+  /* Landscape: wide 3:2 polaroid across the top, quote below. */
+  .cf--quote-landscape .cf-photo { top: 3.704cqw; left: 20.37cqw; width: 55.556cqw; transform: rotate(-2deg); }
+  .cf--quote-landscape .cf-photo img { aspect-ratio: 3 / 2; }
+  .cf--quote-landscape .cf-paper { padding: 35.185cqw 7.037cqw 11.111cqw; justify-content: flex-start; gap: 1.667cqw; }
+  .cf--quote-landscape .cf-quote { max-width: none; font-size: 3.519cqw; }
+  .cf--quote-landscape .cf-eyebrow--quote { max-width: none; }
+  .cf--quote-landscape .cf-body { max-width: none; }
   .cf--quote .cf-flap { bottom: 4.815cqw; left: 4.444cqw; right: 4.444cqw; height: 13.889cqw; transform: rotate(-1.8deg); }
   .cf--quote .cf-tab--quote {
     top: -4.63cqw; left: 35.185cqw; width: 36.019cqw; height: 5.833cqw;
