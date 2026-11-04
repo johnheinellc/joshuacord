@@ -7,6 +7,9 @@
  * right, and a photo + action page stacked on the right. Wraps to a single
  * column on narrow screens.
  *
+ * Passing `face` swaps the folder for the simpler Faces of the Persecuted view:
+ * the photo beside a single sheet holding the quote and body copy.
+ *
  * Accepts the same [[...]] redaction tokens as CaseFileCard.
  */
 
@@ -23,8 +26,9 @@ export interface SpreadPage {
 
 export interface CaseFileSpreadData {
   caseNo: string;
-  photo?: { src: string; alt: string; caption?: string };
-  pages: SpreadPage[];   // first two render as the large sheets, third as the action page
+  photo?: { src: string; alt: string; caption?: string; focus?: string };
+  pages?: SpreadPage[];  // first two render as the large sheets, third as the action page
+  face?: { eyebrow?: string; quote?: string; body?: string };
 }
 
 interface Props {
@@ -44,25 +48,50 @@ function redact(text = "") {
   });
 }
 
-const pageCount = data.pages.length;
+const pages = data.pages ?? [];
+const pageCount = pages.length;
+const { face } = data;
 ---
 
-<div class="cfs" data-case={`case-${data.caseNo}`} data-open={open ? "true" : "false"} role="dialog" aria-modal="true" aria-label={`Case file ${data.caseNo}`}>
+<div class:list={["cfs", face && "cfs--face"]} data-case={`case-${data.caseNo}`} data-open={open ? "true" : "false"} role="dialog" aria-modal="true" aria-label={face ? `Faces of the Persecuted, file ${data.caseNo}` : `Case file ${data.caseNo}`}>
   <div class="cfs-inner">
     <header class="cfs-bar">
       <div class="cfs-brand">
         <span>Joshuacord</span>
-        <span class="cfs-brand-sub">Case File / {data.caseNo} — {pageCount} pages</span>
+        <span class="cfs-brand-sub">{face ? `Faces of the Persecuted / ${data.caseNo}` : `Case File / ${data.caseNo} — ${pageCount} pages`}</span>
       </div>
       <button type="button" class="cfs-close" data-cfs-close>Close file ✕</button>
     </header>
 
+    {face ? (
+      <div class="cfs-face">
+        {data.photo && (
+          <figure class="cfs-photo cfs-photo--face">
+            <img src={data.photo.src} alt={data.photo.alt} style={data.photo.focus ? `object-position:${data.photo.focus}` : undefined} loading="lazy" decoding="async" />
+            {data.photo.caption && <figcaption>{data.photo.caption}</figcaption>}
+          </figure>
+        )}
+        <article class="cfs-sheet cfs-sheet--face jc-grain">
+          {face.eyebrow && <div class="cfs-eyebrow">{face.eyebrow}</div>}
+          {face.quote && <blockquote class="cfs-quote">{face.quote}</blockquote>}
+          {face.body && (
+            <p class="cfs-body cfs-body--face">
+              {redact(face.body).map((part) =>
+                part.bar
+                  ? <span class="cfs-nb"><span class="cfs-bar" style={`width:${part.chars * 0.55}em`} aria-label="Redacted"></span></span>
+                  : part.text
+              )}
+            </p>
+          )}
+        </article>
+      </div>
+    ) : (
     <div class="cfs-desk">
       <div class="cfs-folder" aria-hidden="true"></div>
       <div class="cfs-folder-tab" aria-hidden="true">Case No. {data.caseNo}</div>
 
       <div class="cfs-pages">
-        {data.pages.map((page, index) => (
+        {pages.map((page, index) => (
           <article class:list={["cfs-sheet", "jc-grain", index === 0 ? "cfs-sheet--one" : "cfs-sheet--continuation"]}>
             <div class="cfs-meta"><span>{page.kicker ?? (index === 0 ? "Joshuacord" : "Continued")}</span><span>Page {index + 1} / {pageCount}</span></div>
             <div class="cfs-rule"></div>
@@ -107,6 +136,7 @@ const pageCount = data.pages.length;
         </div>
       </div>
     </div>
+    )}
   </div>
 </div>
 
@@ -359,6 +389,35 @@ const pageCount = data.pages.length;
     .cfs-side { margin-top: 24px; max-width: none; flex: 1 1 100%; }
     .cfs-pages { gap: 24px; padding: 0; }
     .cfs-folder-tab { display: none; }
+  }
+
+  .cfs--face .cfs-inner { max-width: 1080px; }
+  .cfs--face header.cfs-bar { display: flex; height: auto; background: transparent; margin-bottom: 28px; }
+  .cfs-face {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 32px;
+  }
+  .cfs--face .cfs-photo--face { flex: 1 1 420px; max-width: 560px; min-width: 0; transform: rotate(-1.5deg); }
+  .cfs-photo--face img { aspect-ratio: auto; height: auto; max-height: 68vh; }
+  .cfs--face .cfs-sheet--face {
+    flex: 1 1 380px;
+    max-width: 480px;
+    min-width: 0;
+    aspect-ratio: auto;
+    transform: rotate(0.8deg);
+    padding: 44px 40px 48px;
+    gap: 20px;
+  }
+  .cfs-body--face { font-size: 16px; line-height: 1.6; }
+
+  @media (max-width: 900px) {
+    .cfs--face .cfs-photo--face,
+    .cfs--face .cfs-sheet--face { flex-basis: 100%; max-width: 100%; transform: none; }
+    .cfs--face .cfs-sheet--face { padding: 28px 24px 32px; }
+    .cfs-face { gap: 20px; }
   }
 
   @media (prefers-reduced-motion: reduce) {

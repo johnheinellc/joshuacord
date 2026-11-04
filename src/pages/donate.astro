@@ -287,6 +287,14 @@ const monthlyAmounts = [10, 25, 50, 100];
   tabOnetime.addEventListener('click', () => activateTab(tabOnetime, tabMonthly, panelOnetime, panelMonthly));
   tabMonthly.addEventListener('click', () => activateTab(tabMonthly, tabOnetime, panelMonthly, panelOnetime));
 
+  // Preselect the region when arriving from a mission field's support link
+  const requestedRegion = new URLSearchParams(window.location.search).get('region');
+  document.querySelectorAll<HTMLSelectElement>('.donate-panel select').forEach((select) => {
+    if (requestedRegion && [...select.options].some((option) => option.value === requestedRegion)) {
+      select.value = requestedRegion;
+    }
+  });
+
   // Amount button selection
   document.querySelectorAll('.amount-btn').forEach((btn) => {
     btn.addEventListener('click', () => {

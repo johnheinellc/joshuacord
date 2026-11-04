@@ -34,15 +34,8 @@ import Layout from '../layouts/Layout.astro';
 missions-focused event.</p>
             <span class="engage-card-link">Learn how to host a screening <span aria-hidden="true">→</span></span>
           </button>
-          <button class="engage-card engage-card--interactive" type="button" id="resources-trigger" aria-haspopup="dialog" aria-controls="resources-dialog">
-            <span class="engage-card-number">02</span>
-            <h3>Sermon & Teaching Resources</h3>
-            <p>Use Christians in the Mirror as a catalyst for sermons, Bible studies, and discipleship
-conversations about the persecuted Church.</p>
-            <span class="engage-card-link">View available resources <span aria-hidden="true">→</span></span>
-          </button>
           <button class="engage-card engage-card--interactive" type="button" id="speaking-trigger" aria-haspopup="dialog" aria-controls="speaking-dialog">
-            <span class="engage-card-number">03</span>
+            <span class="engage-card-number">02</span>
             <h3>Invite Joshuacord team to speak at your church</h3>
             <p>We would love to partner with you more deeply. Joshuacord team is available to visit your
 church or ministry</p>
@@ -94,21 +87,7 @@ church or ministry</p>
         <li><strong>Choose your format:</strong> In-person event, small-group showing, or online watch party.</li>
         <li><strong>Use our discussion guide:</strong> Help your congregation process what they’ve seen and respond in prayer and action.</li>
       </ol>
-    </div>
-  </dialog>
-
-  <dialog id="resources-dialog" class="screening-dialog" aria-labelledby="resources-dialog-title">
-    <div class="screening-dialog__content">
-      <button id="resources-close" class="screening-dialog__close" type="button" aria-label="Close available resources">×</button>
-      <p class="engage-kicker">Sermon &amp; Teaching Resources</p>
-      <h2 id="resources-dialog-title">Available resources</h2>
-      <ul>
-        <li><strong>Sermon slide deck</strong> – Ready-to-use slides with key themes, Scripture, film clips, and discussion questions.</li>
-        <li><strong>Small-group discussion guide</strong> – For Sunday school, home groups, or youth ministry.</li>
-        <li><strong>Prayer guides</strong> – Focused prayers for the countries and families featured in the film.</li>
-        <li><strong>Promotional graphics</strong> – Shareable images for your website, social media, and church announcements.</li>
-      </ul>
-      <p class="screening-dialog__note">These materials are free for church use. If you’d like additional custom resources for your context, reach out and our team will be glad to help.</p>
+      <button class="engage-button engage-button--primary request-form-trigger" type="button" data-request-type="Church Screening" aria-haspopup="dialog" aria-controls="request-dialog">Fill Out a Request Form</button>
     </div>
   </dialog>
 
@@ -131,6 +110,42 @@ church or ministry</p>
         <li>Include your church name, location, preferred dates, and the type of engagement you’re seeking (screening, sermon series, leadership meeting, etc.)</li>
       </ul>
       <p class="screening-dialog__note">Our team will follow up to explore how we can best serve your church and congregation.</p>
+      <button class="engage-button engage-button--primary request-form-trigger" type="button" data-request-type="Speaking Engagement" aria-haspopup="dialog" aria-controls="request-dialog">Fill Out a Request Form</button>
+    </div>
+  </dialog>
+
+  <dialog id="request-dialog" class="screening-dialog" aria-labelledby="request-dialog-title">
+    <div class="screening-dialog__content">
+      <button id="request-close" class="screening-dialog__close" type="button" aria-label="Close request form">×</button>
+      <p class="engage-kicker">Get in Touch</p>
+      <h2 id="request-dialog-title">Request form</h2>
+      <form id="request-form" class="request-form" data-recipient="pat@joshuacord.org">
+        <div>
+          <label for="request-name">Contact Name <span aria-hidden="true">*</span></label>
+          <input id="request-name" name="name" type="text" autocomplete="name" pattern=".*[^ ].*" title="Please enter your name" required />
+        </div>
+        <div>
+          <label for="request-organization">Organization Name <span aria-hidden="true">*</span></label>
+          <input id="request-organization" name="organization" type="text" autocomplete="organization" pattern=".*[^ ].*" title="Please enter your organization's name" required />
+        </div>
+        <div>
+          <label for="request-email">Email <span aria-hidden="true">*</span></label>
+          <input id="request-email" name="email" type="email" autocomplete="email" required />
+        </div>
+        <div>
+          <label for="request-type">Request Type</label>
+          <select id="request-type" name="type">
+            <option>Church Screening</option>
+            <option>Speaking Engagement</option>
+            <option>Request Additional Support</option>
+          </select>
+        </div>
+        <button class="engage-button engage-button--primary" type="submit">Continue in Your Email App</button>
+        <p id="request-status" class="request-form__status" role="status" hidden>
+          Your email app should now be open with your request filled in. Press send there to deliver it.
+          If it didn’t open, email us at <a href="mailto:pat@joshuacord.org">pat@joshuacord.org</a>.
+        </p>
+      </form>
     </div>
   </dialog>
 </Layout>
@@ -151,7 +166,7 @@ church or ministry</p>
   .engage-button { display: inline-flex; padding: .85rem 1.35rem; font-size: .9rem; font-weight: 700; text-decoration: none; }
   .engage-button--primary { background: #c0392b; color: #fff; }
   .engage-button--outline { border: 1px solid #d8b36f; color: #faf0dc; }
-  .engage-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+  .engage-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 3rem; }
   .engage-card { border: 0; border-top: 3px solid #c0392b; background: #3a2117; padding: 2rem; text-align: left; }
   .engage-card--interactive { width: 100%; color: inherit; cursor: pointer; transition: background 180ms ease-out, transform 180ms ease-out; }
   .engage-card--interactive:hover, .engage-card--interactive:focus-visible { background: #4a281c; transform: translateY(-3px); outline: 2px solid #d8b36f; outline-offset: 4px; }
@@ -174,6 +189,15 @@ church or ministry</p>
   .screening-dialog__note { margin: 2rem 0 0; color: rgba(45,24,16,.82); line-height: 1.7; }
   .screening-dialog__close { position: absolute; top: 1rem; right: 1rem; width: 2.25rem; height: 2.25rem; border: 1px solid rgba(45,24,16,.25); border-radius: 50%; background: transparent; color: #2d1810; font-size: 1.5rem; line-height: 1; cursor: pointer; }
   .screening-dialog__close:hover, .screening-dialog__close:focus-visible { background: #2d1810; color: #faf0dc; }
+  .request-form-trigger { margin-top: 2rem; border: 0; cursor: pointer; }
+  .request-form { display: grid; gap: 1.25rem; }
+  .request-form label { display: block; margin-bottom: .4rem; font-size: .85rem; font-weight: 700; }
+  .request-form label span { color: #c0392b; }
+  .request-form input, .request-form select { width: 100%; padding: .75rem .9rem; border: 1px solid rgba(45,24,16,.35); background: #fff; color: #2d1810; font: inherit; }
+  .request-form input:focus-visible, .request-form select:focus-visible { outline: 2px solid #c0392b; outline-offset: 1px; }
+  .request-form button[type="submit"] { justify-self: start; border: 0; cursor: pointer; }
+  .request-form__status { margin: 0; color: rgba(45,24,16,.82); line-height: 1.7; }
+  .request-form__status a { color: #922b21; text-decoration: underline; }
   @media (max-width: 700px) { .engage-grid { grid-template-columns: 1fr; } .engage-hero { padding: 5rem 1.25rem 4.5rem; } .engage-section { padding: 4rem 1.25rem 5rem; } }
 </style>
 
@@ -181,9 +205,6 @@ church or ministry</p>
   const screeningTrigger = document.getElementById('screening-trigger');
   const screeningDialog = document.getElementById('screening-dialog');
   const screeningClose = document.getElementById('screening-close');
-  const resourcesTrigger = document.getElementById('resources-trigger');
-  const resourcesDialog = document.getElementById('resources-dialog');
-  const resourcesClose = document.getElementById('resources-close');
   const speakingTrigger = document.getElementById('speaking-trigger');
   const speakingDialog = document.getElementById('speaking-dialog');
   const speakingClose = document.getElementById('speaking-close');
@@ -193,14 +214,42 @@ church or ministry</p>
   screeningDialog?.addEventListener('click', (event) => {
     if (event.target === screeningDialog) screeningDialog.close();
   });
-  resourcesTrigger?.addEventListener('click', () => resourcesDialog?.showModal());
-  resourcesClose?.addEventListener('click', () => resourcesDialog?.close());
-  resourcesDialog?.addEventListener('click', (event) => {
-    if (event.target === resourcesDialog) resourcesDialog.close();
-  });
   speakingTrigger?.addEventListener('click', () => speakingDialog?.showModal());
   speakingClose?.addEventListener('click', () => speakingDialog?.close());
   speakingDialog?.addEventListener('click', (event) => {
     if (event.target === speakingDialog) speakingDialog.close();
+  });
+
+  const requestDialog = document.getElementById('request-dialog') as HTMLDialogElement | null;
+  const requestClose = document.getElementById('request-close');
+  const requestForm = document.getElementById('request-form') as HTMLFormElement | null;
+  const requestType = document.getElementById('request-type') as HTMLSelectElement | null;
+  const requestStatus = document.getElementById('request-status');
+
+  document.querySelectorAll<HTMLButtonElement>('.request-form-trigger').forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      trigger.closest('dialog')?.close();
+      if (requestType) requestType.value = trigger.dataset.requestType ?? requestType.value;
+      if (requestStatus) requestStatus.hidden = true;
+      requestDialog?.showModal();
+    });
+  });
+  requestClose?.addEventListener('click', () => requestDialog?.close());
+  requestDialog?.addEventListener('click', (event) => {
+    if (event.target === requestDialog) requestDialog.close();
+  });
+  requestForm?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const data = new FormData(requestForm);
+    const value = (field: string) => String(data.get(field) ?? '').trim();
+    const subject = `${value('type')}: ${value('organization')}`;
+    const body = [
+      `Contact Name: ${value('name')}`,
+      `Organization Name: ${value('organization')}`,
+      `Email: ${value('email')}`,
+      `Request Type: ${value('type')}`,
+    ].join('\r\n');
+    window.location.href = `mailto:${requestForm.dataset.recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    if (requestStatus) requestStatus.hidden = false;
   });
 </script>

@@ -74,7 +74,7 @@ import Layout from '../layouts/Layout.astro';
       <div class="w-12 h-0.5 bg-brand mx-auto mb-10"></div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left mt-4">
-        <div class="bg-sand p-8 border-t-4 border-brand">
+        <div class="bg-sand p-8 border-t-4 border-brand shadow-[inset_0_0_40px_color-mix(in_srgb,var(--color-brand-dark)_25%,transparent)]">
           <div class="w-10 h-10 bg-brand/10 flex items-center justify-center mb-5">
             <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
@@ -87,7 +87,7 @@ import Layout from '../layouts/Layout.astro';
           </p>
         </div>
 
-        <div class="bg-sand p-8 border-t-4 border-brand">
+        <div class="bg-sand p-8 border-t-4 border-brand shadow-[inset_0_0_40px_color-mix(in_srgb,var(--color-brand-dark)_25%,transparent)]">
           <div class="w-10 h-10 bg-brand/10 flex items-center justify-center mb-5">
             <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -100,7 +100,7 @@ import Layout from '../layouts/Layout.astro';
           </p>
         </div>
 
-        <div class="bg-sand p-8 border-t-4 border-brand">
+        <div class="bg-sand p-8 border-t-4 border-brand shadow-[inset_0_0_40px_color-mix(in_srgb,var(--color-brand-dark)_25%,transparent)]">
           <div class="w-10 h-10 bg-brand/10 flex items-center justify-center mb-5">
             <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
@@ -132,6 +132,70 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
+  <!-- STATEMENT OF FAITH -->
+  <section class="py-24 bg-sand">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <p class="text-brand text-sm font-medium tracking-[0.2em] uppercase mb-3">What We Believe</p>
+        <h2 class="font-display text-4xl text-dark mb-4">Statement of Faith</h2>
+        <div class="w-12 h-0.5 bg-brand mx-auto"></div>
+      </div>
+
+      <div class="space-y-6 text-center">
+        <p class="text-dark/70 leading-relaxed">
+          Joshuacord is a non-denominational Christian nonprofit committed to serving persecuted
+          believers across every tradition, background, and expression of the global Church. We
+          stand with all who suffer for the name of Christ, without regard to denomination.
+        </p>
+        <p class="text-dark/70 leading-relaxed">
+          Our beliefs are rooted in the historic Christian faith as expressed in the Apostles’ Creed:
+        </p>
+      </div>
+
+      <div class="mt-10 bg-sand-dark p-8 sm:p-10 border-t-4 border-brand text-center space-y-6 shadow-[inset_0_0_40px_color-mix(in_srgb,var(--color-brand-dark)_25%,transparent)]">
+        <p class="text-dark/80 leading-relaxed">
+          I believe in God, the Father Almighty,<br />
+          Maker of heaven and earth.
+        </p>
+        <p class="text-dark/80 leading-relaxed">
+          And in Jesus Christ, His only begotten Son, our Lord,<br />
+          who was conceived by the Holy Spirit,<br />
+          born of the Virgin Mary,<br />
+          suffered under Pontius Pilate,<br />
+          was crucified, died, and was buried.<br />
+          On the third day, He rose again from the dead;<br />
+          He ascended into heaven<br />
+          and sits at the right hand of God the Father Almighty,<br />
+          from where He shall come to judge the living and the dead.
+        </p>
+        <p class="text-dark/80 leading-relaxed">
+          I believe in the Holy Spirit,<br />
+          the holy Christian Church,<br />
+          the communion of saints,<br />
+          the forgiveness of sins,<br />
+          the resurrection of the body,<br />
+          and the life everlasting.
+        </p>
+        <p class="font-display text-xl text-dark">Amen.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR COMMITMENT -->
+  <section class="py-24 bg-sand-dark">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-brand text-sm font-medium tracking-[0.2em] uppercase mb-3">One Body in Christ</p>
+      <h2 class="font-display text-4xl text-dark mb-4">Our Commitment</h2>
+      <div class="w-12 h-0.5 bg-brand mx-auto mb-10"></div>
+      <p class="text-dark/70 leading-relaxed">
+        Guided by this shared confession, Joshuacord serves persecuted Christians worldwide —
+        providing prayer, advocacy, and practical support to those whose faith has placed them in
+        harm’s way. We believe the global Church is one Body in Christ, and when one part suffers,
+        we all suffer together (1 Corinthians 12:26).
+      </p>
+    </div>
+  </section>
+
   <!-- BOARD MEMBERS -->
   <section class="py-24 bg-sand">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -151,7 +215,7 @@ import Layout from '../layouts/Layout.astro';
           />
           <h3 class="font-display text-lg text-dark mb-1">Patrick Carberry</h3>
           <p class="text-clay text-sm mb-3">Founder</p>
-          <p class="text-dark/65 text-sm leading-relaxed">Served the U.S. Government in Washington DC, and Tampa since 2002 and was deployed to Iraq in 2004 and Afghanistan in 2009 embedded in the US Army. Prior to Government employment he had a successful career in various Senior Executive positions for over 25 years, working for fortune 500 companies and as an entrepreneur. This included bootstrapping an idea into a high tech document management and computer graphics company that sold to a larger public company. Pat is a veteran and served in the US Army 82nd Airborne Division (1970-73). He received his B.A degree from California State University, Fullerton, CA and has been working part time on his Master in Religion from Liberty University. Pat has been married for 40 years. You can reach Patrick at pat@joshuacord.org.</p>
+          <p class="text-dark/65 text-sm leading-relaxed">Served the U.S. Government in Washington DC, and Tampa since 2002 and was deployed to Iraq in 2004 and Afghanistan in 2009 embedded in the US Army. Prior to Government employment he had a successful career in various Senior Executive positions for over 25 years, working for fortune 500 companies and as an entrepreneur. This included bootstrapping an idea into a high tech document management and computer graphics company that sold to a larger public company. Pat is a veteran and served in the US Army 82nd Airborne Division (1970-73). He received his B.A degree from California State University, Fullerton, CA and had attended Liberty University towards his Masters degree. Pat has been married for over 50 years. You can reach Patrick at pat@joshuacord.org.</p>
         </div>
 
         <div class="bg-sand p-6 border border-clay/30 text-center">
@@ -203,7 +267,7 @@ import Layout from '../layouts/Layout.astro';
             <address class="not-italic text-white/70 leading-relaxed text-sm">
               Joshuacord Inc.<br />
               3433 Lithia Pinecrest Road<br />
-              Suite 120<br />
+              P.O. Box 120<br />
               Valrico, Florida 33596
             </address>
           </div>
@@ -213,28 +277,6 @@ import Layout from '../layouts/Layout.astro';
             <a href="tel:+18134447905" class="text-white/70 hover:text-white transition-colors text-sm">
               (813) 444-7905
             </a>
-          </div>
-
-          <div>
-            <h3 class="text-clay font-display text-xl mb-3">Follow Us</h3>
-            <div class="flex gap-5 text-sm">
-              <a
-                href="https://www.facebook.com/joshuacord1.9"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-white/60 hover:text-clay transition-colors"
-              >
-                Facebook
-              </a>
-              <a
-                href="https://twitter.com/joshua_cord"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-white/60 hover:text-clay transition-colors"
-              >
-                Twitter
-              </a>
-            </div>
           </div>
         </div>
 

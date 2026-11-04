@@ -99,7 +99,7 @@ function toSpread(card) {
         <div class="case-grid">
           {faceCards.map((card) => (
             <div id={`case-${card.caseNo}`} class="case-anchor">
-              <CaseFileCard card={card} />
+              <CaseFileCard card={card} triggerId={`case-${card.caseNo}`} />
             </div>
           ))}
           {ctaCard && <CaseFileCard card={ctaCard} />}
@@ -127,6 +127,9 @@ function toSpread(card) {
     </section>
   </main>
 
+  {faceCards.map((card) => (
+    <CaseFileSpread data={{ caseNo: card.caseNo, photo: card.photo, face: { eyebrow: card.eyebrow, quote: card.quote, body: card.body } }} />
+  ))}
   {recordCards.map((card) => <CaseFileSpread data={toSpread(card)} />)}
 </Layout>
 
