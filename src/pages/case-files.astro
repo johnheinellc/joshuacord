@@ -128,7 +128,7 @@ function toSpread(card) {
   </main>
 
   {faceCards.map((card) => (
-    <CaseFileSpread data={{ caseNo: card.caseNo, photo: card.photo, face: { eyebrow: card.eyebrow, quote: card.quote, body: card.body } }} />
+    <CaseFileSpread data={{ caseNo: card.caseNo, photo: card.photo, face: { eyebrow: card.eyebrow, quote: card.quote, description: card.description, body: card.body } }} />
   ))}
   {recordCards.map((card) => <CaseFileSpread data={toSpread(card)} />)}
 </Layout>

@@ -31,6 +31,7 @@ export interface CaseFile {
   eyebrow?: string;
   headline?: string;
   quote?: string;
+  description?: string; // quote variant: plain text set at the quote's size, without quote styling
   body?: string;
   fields?: { label: string; value: string }[];
   photo?: {
@@ -140,6 +141,7 @@ const photoStyle = card.photo?.focus ? `object-position:${card.photo.focus}` : u
       <div class="cf-paper">
         {card.eyebrow && <div class="cf-eyebrow cf-stencil cf-eyebrow--quote">{card.eyebrow}</div>}
         {card.quote && <blockquote class="cf-quote">{card.quote}</blockquote>}
+        {card.description && <p class="cf-quote">{card.description}</p>}
         {card.body && (
           <p class="cf-body">
             {redact(card.body).map((p) =>

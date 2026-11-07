@@ -28,7 +28,7 @@ export interface CaseFileSpreadData {
   caseNo: string;
   photo?: { src: string; alt: string; caption?: string; focus?: string };
   pages?: SpreadPage[];  // first two render as the large sheets, third as the action page
-  face?: { eyebrow?: string; quote?: string; body?: string };
+  face?: { eyebrow?: string; quote?: string; description?: string; body?: string };
 }
 
 interface Props {
@@ -74,6 +74,7 @@ const { face } = data;
         <article class="cfs-sheet cfs-sheet--face jc-grain">
           {face.eyebrow && <div class="cfs-eyebrow">{face.eyebrow}</div>}
           {face.quote && <blockquote class="cfs-quote">{face.quote}</blockquote>}
+          {face.description && <p class="cfs-quote cfs-quote--plain">{face.description}</p>}
           {face.body && (
             <p class="cfs-body cfs-body--face">
               {redact(face.body).map((part) =>
@@ -412,6 +413,7 @@ const { face } = data;
     gap: 20px;
   }
   .cfs-body--face { font-size: 16px; line-height: 1.6; }
+  .cfs-quote--plain { padding: 0; background: none; border: 0; border-radius: 0; }
 
   @media (max-width: 900px) {
     .cfs--face .cfs-photo--face,

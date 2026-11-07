@@ -4,8 +4,7 @@
     "caseNo": "04",
     "fileLabel": "File 04 / 05",
     "eyebrow": "In Her Words",
-    "quote": "“Pull quote placeholder — a sentence in the subject's own words, set in Playfair.”",
-    "body": "Body copy placeholder. Attribution and one line of context.",
+    "description": "Mother of Coptic Christian whose son was beheaded by ISIS.",
     "tabLabel": "Faces of the Persecuted",
     "photo": {
       "src": "/cases/faces/case-04.jpg",
@@ -19,8 +18,7 @@
     "caseNo": "05",
     "fileLabel": "File 05 / 05",
     "eyebrow": "In His Words",
-    "quote": "“Pull quote placeholder — a sentence in the subject's own words, set in Playfair.”",
-    "body": "Body copy placeholder. Attribution and one line of context.",
+    "description": "Iraqi Christian who lost everything due to the terror group ISIS.",
     "tabLabel": "Faces of the Persecuted",
     "photo": {
       "src": "/cases/faces/case-05.jpg",
@@ -33,8 +31,7 @@
     "caseNo": "06",
     "fileLabel": "File 06",
     "eyebrow": "In Her Words",
-    "quote": "“Pull quote placeholder — a sentence in the subject's own words, set in Playfair.”",
-    "body": "Body copy placeholder. Attribution and one line of context.",
+    "description": "Wife and son of a Coptic Christian man who was beheaded by ISIS.",
     "tabLabel": "Faces of the Persecuted",
     "photo": {
       "src": "/cases/faces/case-06.jpg",
@@ -48,8 +45,7 @@
     "caseNo": "07",
     "fileLabel": "File 07",
     "eyebrow": "In Her Words",
-    "quote": "“Pull quote placeholder — a sentence in the subject's own words, set in Playfair.”",
-    "body": "Body copy placeholder. Attribution and one line of context.",
+    "description": "Christian women who were kidnapped and held in Iraq and enslaved by ISIS with other women.",
     "tabLabel": "Faces of the Persecuted",
     "photo": {
       "src": "/cases/faces/case-07.jpg",
@@ -62,8 +58,7 @@
     "caseNo": "08",
     "fileLabel": "File 08",
     "eyebrow": "In Her Words",
-    "quote": "“Pull quote placeholder — a sentence in the subject's own words, set in Playfair.”",
-    "body": "Body copy placeholder. Attribution and one line of context.",
+    "description": "Iraqi Christian girl who was living in a refugee camp after her family was forced to leave due to ISIS.",
     "tabLabel": "Faces of the Persecuted",
     "photo": {
       "src": "/cases/faces/case-08.jpg",
@@ -76,8 +71,7 @@
     "caseNo": "09",
     "fileLabel": "File 09",
     "eyebrow": "In Her Words",
-    "quote": "“Pull quote placeholder — a sentence in the subject's own words, set in Playfair.”",
-    "body": "Body copy placeholder. Attribution and one line of context.",
+    "description": "Jordanian Christian helping fellow Middle East Christians who have been persecuted and forced from their homes and community due to ISIS.",
     "tabLabel": "Faces of the Persecuted",
     "photo": {
       "src": "/cases/faces/case-09.jpg",
@@ -90,8 +84,7 @@
     "caseNo": "10",
     "fileLabel": "File 10",
     "eyebrow": "In Her Words",
-    "quote": "“Pull quote placeholder — a sentence in the subject's own words, set in Playfair.”",
-    "body": "Body copy placeholder. Attribution and one line of context.",
+    "description": "Persecuted Indian Christians by Hindus praying for their church in India.",
     "tabLabel": "Faces of the Persecuted",
     "photo": {
       "src": "/cases/faces/case-10.jpg",
@@ -104,8 +97,7 @@
     "caseNo": "11",
     "fileLabel": "File 11",
     "eyebrow": "In Her Words",
-    "quote": "“Pull quote placeholder — a sentence in the subject's own words, set in Playfair.”",
-    "body": "Body copy placeholder. Attribution and one line of context.",
+    "description": "Little Christian in India whose parents suffered persecution from Hindus.",
     "tabLabel": "Faces of the Persecuted",
     "photo": {
       "src": "/cases/faces/case-11.jpg",
@@ -118,8 +110,7 @@
     "caseNo": "12",
     "fileLabel": "File 12",
     "eyebrow": "In Her Words",
-    "quote": "“Pull quote placeholder — a sentence in the subject's own words, set in Playfair.”",
-    "body": "Body copy placeholder. Attribution and one line of context.",
+    "description": "Little boy who lives in the streets of India.",
     "tabLabel": "Faces of the Persecuted",
     "photo": {
       "src": "/cases/faces/case-12.jpg",
@@ -132,8 +123,7 @@
     "caseNo": "14",
     "fileLabel": "File 14",
     "eyebrow": "In Her Words",
-    "quote": "“Pull quote placeholder — a sentence in the subject's own words, set in Playfair.”",
-    "body": "Body copy placeholder. Attribution and one line of context.",
+    "description": "Indian Christian praying for the persecuted church in India.",
     "tabLabel": "Faces of the Persecuted",
     "photo": {
       "src": "/cases/faces/case-14.jpg",
@@ -147,8 +137,7 @@
     "caseNo": "16",
     "fileLabel": "File 16",
     "eyebrow": "In Her Words",
-    "quote": "“Pull quote placeholder — a sentence in the subject's own words, set in Playfair.”",
-    "body": "Body copy placeholder. Attribution and one line of context.",
+    "description": "Christian boy displaced from home due to ISIS.",
     "tabLabel": "Faces of the Persecuted",
     "photo": {
       "src": "/cases/faces/case-16.jpg",
