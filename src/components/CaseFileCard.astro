@@ -316,7 +316,8 @@ const photoStyle = card.photo?.focus ? `object-position:${card.photo.focus}` : u
     color: #4a3524;
     text-wrap: pretty;
   }
-  .cf-body--cta { max-width: 46.296cqw; }
+  /* Sits below the paper-clipped photo, so it can run the full width of the sheet */
+  .cf-body--cta { max-width: none; font-size: 2.037cqw; line-height: 1.5; }
 
   /* Redaction bars */
   .cf-nb { white-space: nowrap; }
@@ -469,8 +470,8 @@ const photoStyle = card.photo?.focus ? `object-position:${card.photo.focus}` : u
   .cf--cta .cf-paper {
     top: 10.185cqw; left: 8.519cqw; right: 8.519cqw; bottom: 16.667cqw;
     transform: rotate(-0.6deg);
-    padding: 5.926cqw 6.296cqw;
-    gap: 2.222cqw;
+    padding: 4.815cqw 6.296cqw;
+    gap: 1.852cqw;
   }
   .cf--cta .cf-photo { top: 6.111cqw; right: 5.926cqw; width: 24.815cqw; padding: 1.481cqw 1.481cqw 5cqw; transform: rotate(6.8deg); }
   .cf--cta .cf-photo img { height: 21.852cqw; }

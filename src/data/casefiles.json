@@ -315,13 +315,12 @@
     "caseNo": "13",
     "eyebrow": "How To Help",
     "headline": "Closing headline goes here",
-    "body": "Body copy placeholder. One short paragraph on what a supporter can do next, ending with the ask.",
+    "body": "Guided by this shared confession, Joshuacord serves persecuted Christians worldwide — providing prayer, advocacy, and practical support to those whose faith has placed them in harm’s way. We believe the global Church is one Body in Christ, and when one part suffers, we all suffer together (1 Corinthians 12:26).",
     "stamp": "Joshuacord 1:9",
     "cta": { "label": "Become a Freedom Partner", "href": "/donate" },
     "photo": {
-      "src": "/cases/placeholder.svg",
-      "alt": "Photograph filed with case 05",
-      "caption": "Caption"
+      "src": "/images/joshuacord-logo.png",
+      "alt": "Joshuacord logo: Persecuted But Not Forgotten"
     }
   }
 ]
