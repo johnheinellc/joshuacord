@@ -216,6 +216,7 @@ import Layout from '../layouts/Layout.astro';
           <h3 class="font-display text-lg text-dark mb-1">Patrick Carberry</h3>
           <p class="text-clay text-sm mb-3">Founder</p>
           <p class="text-dark/65 text-sm leading-relaxed">Served the U.S. Government in Washington DC, and Tampa since 2002 and was deployed to Iraq in 2004 and Afghanistan in 2009 embedded in the US Army. Prior to Government employment he had a successful career in various Senior Executive positions for over 25 years, working for fortune 500 companies and as an entrepreneur. This included bootstrapping an idea into a high tech document management and computer graphics company that sold to a larger public company. Pat is a veteran and served in the US Army 82nd Airborne Division. He received his B.A degree from California State University, Fullerton, CA and had attended Liberty University Masters program.</p>
+          <a href="mailto:pat@joshuacord.org" class="inline-block mt-3 text-brand hover:underline text-sm">pat@joshuacord.org</a>
         </div>
 
         <div class="bg-sand p-6 border border-clay/30 text-center">
@@ -230,10 +231,15 @@ import Layout from '../layouts/Layout.astro';
         </div>
 
         <div class="bg-sand p-6 border border-clay/30 text-center">
-          <div class="w-20 h-20 bg-dark/10 rounded-full mx-auto mb-4 flex items-center justify-center">Img</div>
+          <img
+            src="/images/kimberly-carberry.jpg"
+            alt="Kimberly Carberry"
+            class="w-20 h-20 object-cover rounded-full mx-auto mb-4"
+          />
           <h3 class="font-display text-lg text-dark mb-1">Kimberly Carberry</h3>
           <p class="text-clay text-sm mb-3">Board Member</p>
-          <p class="text-dark/65 text-sm leading-relaxed">Short bio placeholder — edit to add member details.</p>
+          <p class="text-dark/65 text-sm leading-relaxed">Kimberly Carberry is a Board Member of Joshuacord and has been active in nonprofit work for more than 15 years. She brings more than a decade of experience in program management, contracting, and tech startups. She holds a Master of Science from Virginia Tech and a Bachelor of Science from Bentley University.</p>
+          <a href="mailto:kimberly@joshuacord.org" class="inline-block mt-3 text-brand hover:underline text-sm">kimberly@joshuacord.org</a>
         </div>
 
         <div class="bg-sand p-6 border border-clay/30 text-center">
@@ -278,32 +284,52 @@ import Layout from '../layouts/Layout.astro';
               (813) 444-7905
             </a>
           </div>
+
+          <div>
+            <h3 class="text-clay font-display text-xl mb-3">Email</h3>
+            <a href="mailto:info@joshuacord.org" class="text-white/70 hover:text-white transition-colors text-sm">
+              info@joshuacord.org
+            </a>
+          </div>
         </div>
 
-        <!-- Contact form placeholder -->
+        <!-- Contact form: opens the visitor's email app addressed to info@ (same approach as the Engage request form) -->
         <div class="bg-sand/5 border border-sand/10 p-8">
           <h3 class="text-white font-display text-xl mb-6">Send a Message</h3>
-          <form class="space-y-4">
+          <form id="contact-form" class="space-y-4" data-recipient="info@joshuacord.org">
             <div>
-              <label class="block text-white/60 text-xs uppercase tracking-wide mb-2">Name</label>
+              <label for="contact-name" class="block text-white/60 text-xs uppercase tracking-wide mb-2">Name</label>
               <input
+                id="contact-name"
+                name="name"
                 type="text"
+                autocomplete="name"
+                pattern=".*[^ ].*"
+                title="Please enter your name"
+                required
                 placeholder="Your name"
                 class="w-full bg-sand/10 border border-sand/20 text-white placeholder-white/30 px-4 py-3 text-sm focus:outline-none focus:border-clay"
               />
             </div>
             <div>
-              <label class="block text-white/60 text-xs uppercase tracking-wide mb-2">Email</label>
+              <label for="contact-email" class="block text-white/60 text-xs uppercase tracking-wide mb-2">Email</label>
               <input
+                id="contact-email"
+                name="email"
                 type="email"
+                autocomplete="email"
+                required
                 placeholder="your@email.com"
                 class="w-full bg-sand/10 border border-sand/20 text-white placeholder-white/30 px-4 py-3 text-sm focus:outline-none focus:border-clay"
               />
             </div>
             <div>
-              <label class="block text-white/60 text-xs uppercase tracking-wide mb-2">Message</label>
+              <label for="contact-message" class="block text-white/60 text-xs uppercase tracking-wide mb-2">Message</label>
               <textarea
+                id="contact-message"
+                name="message"
                 rows="4"
+                required
                 placeholder="How can we help?"
                 class="w-full bg-sand/10 border border-sand/20 text-white placeholder-white/30 px-4 py-3 text-sm focus:outline-none focus:border-clay resize-none"
               ></textarea>
@@ -312,8 +338,12 @@ import Layout from '../layouts/Layout.astro';
               type="submit"
               class="w-full bg-brand hover:bg-brand-dark text-white py-3 text-sm font-medium tracking-wide transition-colors"
             >
-              Send Message
+              Continue in Your Email App
             </button>
+            <p id="contact-status" class="text-white/70 text-sm leading-relaxed" role="status" hidden>
+              Your email app should now be open with your message filled in. Press send there to deliver it.
+              If it didn’t open, email us at <a href="mailto:info@joshuacord.org" class="text-clay hover:underline">info@joshuacord.org</a>.
+            </p>
           </form>
         </div>
       </div>
@@ -321,3 +351,23 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
 </Layout>
+
+<script>
+  const contactForm = document.getElementById('contact-form') as HTMLFormElement | null;
+  const contactStatus = document.getElementById('contact-status');
+
+  contactForm?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const data = new FormData(contactForm);
+    const value = (field: string) => String(data.get(field) ?? '').trim();
+    const subject = `Website message from ${value('name')}`;
+    const body = [
+      value('message'),
+      '',
+      `Name: ${value('name')}`,
+      `Email: ${value('email')}`,
+    ].join('\r\n');
+    window.location.href = `mailto:${contactForm.dataset.recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    if (contactStatus) contactStatus.hidden = false;
+  });
+</script>
