@@ -1,0 +1,70 @@
+# Permanent redirects from the retired WordPress site (joshuacord.org, pre-2026)
+# so old bookmarks, search results and inbound links land on the new pages.
+# Format: <old path> <new path> <status>. Served by Cloudflare Workers static assets.
+
+# --- About ---
+/about_us/                                   /about/          301
+/about-joshuacord/                           /about/          301
+/message-from-the-founder/                   /about/          301
+/board/                                      /about/          301
+/statement-of-faith/                         /about/          301
+/contact-us/                                 /about/#contact  301
+/christianity-persecuted-religion-world/     /about/          301
+
+# --- Mission fields / countries ---
+/about-the-countries-we-help/                /mission-fields/ 301
+/persecuted-countries/                       /mission-fields/ 301
+/afghanistan/                                /mission-fields/ 301
+/egypt/                                      /mission-fields/ 301
+/iraq/                                       /mission-fields/ 301
+/nigeria/                                    /mission-fields/ 301
+/somalia/                                    /mission-fields/ 301
+/syria/                                      /mission-fields/ 301
+
+# --- Giving (old WooCommerce donation + shop pages) ---
+/support/                                    /donate/         301
+/support/immediateneed/                      /donate/         301
+/thank-you-for-your-donation/                /donate/         301
+/thank/                                      /donate/         301
+/zee_service/donate/                         /donate/         301
+/shop/                                       /donate/         301
+/cart/                                       /donate/         301
+/checkout/                                   /donate/         301
+/my-account/                                 /donate/         301
+/become-a-vendor/                            /donate/         301
+/vendors-terms-and-conditions/               /donate/         301
+
+# --- Films & media ---
+/documentary/                                /media/          301
+/documentary-2/                              /media/          301
+/christians-in-the-mirror/                   /media/          301
+/new-song/                                   /media/          301
+/news-press/                                 /media/          301
+/ribbon/                                     /media/          301
+/cat_service/media/                          /media/          301
+/stories/                                    /media/          301
+
+# --- Get involved ---
+/volunteer/                                  /engage/         301
+/my-ripple-effect/                           /engage/         301
+/what-is-your-ripple/                        /engage/         301
+
+# --- Old blog posts, categories, tags, feeds ---
+/ready/                                      /                301
+/love-loyalty-and-character/                 /                301
+/christians-concerned-christian-persecution/ /mission-fields/ 301
+/hope-and-faith/                             /                301
+/loveourneighbors/                           /                301
+/christian-persecution-starvation/           /mission-fields/ 301
+/christ-is-limitless/                        /                301
+/sins-commission-sins-omission/              /                301
+/new-home/                                   /                301
+/feed                                        /                301
+
+# --- Wildcard rules (must stay last) ---
+/product/*                                   /donate/         301
+/product-category/*                          /donate/         301
+/category/*                                  /                301
+/tag/*                                       /                301
+/zee_service/*                               /                301
+/feed/*                                      /                301
