@@ -4,11 +4,14 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  /** Keep the page out of search results (e.g. the post-donation thank-you page). */
+  noindex?: boolean;
 }
 
 const {
   title = 'Home',
   description = 'Joshuacord helps persecuted Christians around the world through prayer, practical aid, and advocacy.',
+  noindex = false,
 } = Astro.props;
 
 const currentPath = Astro.url.pathname;
@@ -36,6 +39,7 @@ const engagementLinks = [
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex" />}
     <link rel="icon" type="image/png" href="/images/joshuacord-logo-header.png" />
     <title>{title} | Joshuacord</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />

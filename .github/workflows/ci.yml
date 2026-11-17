@@ -36,6 +36,9 @@ jobs:
           name: site-dist
           path: dist
 
+      # Only a push to main deploys. Pull requests still build, but a PR from a
+      # branch in this repo gets the token too, so without this guard it would
+      # deploy the branch to the live site before it was merged.
       - name: Deploy to Cloudflare Workers
-        if: ${{ env.CLOUDFLARE_API_TOKEN != '' }}
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && env.CLOUDFLARE_API_TOKEN != '' }}
         run: npx wrangler deploy --config ./wrangler.toml
