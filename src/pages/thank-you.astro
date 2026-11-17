@@ -1,0 +1,75 @@
+---
+// Landing page for Stripe's "After payment" redirect. Each Payment Link in the
+// Stripe Dashboard points here once the gift goes through. Kept out of search
+// results and the sitemap so it is only reached after a donation.
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Thank You"
+  description="Thank you for your gift to Joshuacord. A receipt is on its way to your email."
+  noindex
+>
+
+  <!-- PAGE HERO -->
+  <section class="relative bg-dark py-28 overflow-hidden">
+    <div class="absolute inset-0 opacity-20">
+      <img
+        src="/images/home-hero.jpg"
+        alt=""
+        class="w-full h-full object-cover"
+      />
+    </div>
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-clay text-sm font-medium tracking-[0.2em] uppercase mb-4">Your Gift Has Been Received</p>
+      <h1 class="font-display text-5xl sm:text-6xl text-white mb-5">Thank You</h1>
+      <div class="w-12 h-0.5 bg-brand mx-auto mb-6"></div>
+      <p class="text-white/65 text-lg leading-relaxed max-w-2xl mx-auto">
+        Your generosity brings prayer, practical aid, and a voice of hope to Christians
+        suffering for their faith. Because of you, they are persecuted — but not forgotten.
+      </p>
+    </div>
+  </section>
+
+  <!-- RECEIPT + NEXT STEPS -->
+  <section class="py-24 bg-sand">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-brand text-sm font-medium tracking-[0.2em] uppercase mb-3">What Happens Next</p>
+      <h2 class="font-display text-3xl text-dark mb-4">A Receipt Is on Its Way</h2>
+      <div class="w-12 h-0.5 bg-brand mx-auto mb-6"></div>
+      <p class="text-dark/70 leading-relaxed mb-4">
+        A receipt has been emailed to the address you entered at checkout. If it hasn't arrived
+        within a few minutes, please check your spam folder or email us at
+        <a href="mailto:donations@joshuacord.org" class="text-brand hover:underline">donations@joshuacord.org</a>.
+      </p>
+      <p class="text-dark/60 text-sm leading-relaxed mb-10">
+        Joshuacord Inc. is a registered 501(c)(3) nonprofit organization. Your gift is tax-deductible
+        to the extent permitted by law — please keep your receipt for your records.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14">
+        <a
+          href="/"
+          class="bg-brand hover:bg-brand-dark text-white px-10 py-4 text-sm font-medium tracking-wide transition-colors w-full sm:w-auto text-center"
+        >
+          Return to Homepage
+        </a>
+        <a
+          href="/mission-fields"
+          class="border border-dark/30 hover:border-brand text-dark hover:text-brand px-10 py-4 text-sm font-medium tracking-wide transition-colors w-full sm:w-auto text-center"
+        >
+          See Where Your Gift Goes
+        </a>
+      </div>
+
+      <blockquote class="border-l-3 border-clay pl-5 text-left">
+        <p class="text-base text-dark/80 italic leading-relaxed">
+          "Truly I tell you, whatever you did for one of the least of these brothers and sisters
+          of mine, you did for me."
+        </p>
+        <cite class="block text-clay text-sm font-medium not-italic mt-2">— Matthew 25:40</cite>
+      </blockquote>
+    </div>
+  </section>
+
+</Layout>

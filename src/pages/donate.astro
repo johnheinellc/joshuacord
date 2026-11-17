@@ -1,20 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-const regions = [
-  'All Missions',
-  'Afghanistan',
-  'Egypt',
-  'India',
-  'Iraq',
-  'Nigeria',
-  'Somalia',
-  'Sudan & South Sudan',
-  'Syria',
-];
-
-const oneTimeAmounts = [25, 50, 100, 250];
-const monthlyAmounts = [10, 25, 50, 100];
+import { ONE_TIME_GIFT_URL, MONTHLY_GIFTS } from '../data/donations';
 ---
 
 <Layout
@@ -47,91 +33,37 @@ const monthlyAmounts = [10, 25, 50, 100];
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start">
 
-        <!-- LEFT: Donation form -->
-        <div class="lg:col-span-3">
+        <!-- LEFT: Ways to give. Each button is a plain link to a Stripe Payment Link
+             (see src/data/donations.ts); the gift is completed on Stripe's checkout page. -->
+        <div class="lg:col-span-3 space-y-12">
+          <p class="text-dark/70 leading-relaxed">
+            Give once, or join our monthly Freedom Partners. Either way, you'll complete your gift
+            on Stripe's secure checkout page — and you can designate your gift to a specific
+            mission field at checkout.
+          </p>
 
-          <!-- Tabs: One-time / Monthly -->
-          <div class="flex border-b border-clay/30 mb-8">
-            <button
-              id="tab-onetime"
-              class="donate-tab px-6 py-3 text-sm font-medium tracking-wide border-b-2 transition-colors border-brand text-brand"
+          <!-- One-time gift -->
+          <div id="one-time" class="scroll-mt-28">
+            <p class="text-brand text-sm font-medium tracking-[0.2em] uppercase mb-3">Give Once</p>
+            <h2 class="font-display text-3xl text-dark mb-4">One-Time Gift</h2>
+            <div class="w-10 h-0.5 bg-brand mb-5"></div>
+            <p class="text-dark/70 text-sm leading-relaxed mb-6">
+              Give any amount you choose. You'll enter the amount on the next page.
+            </p>
+            <a
+              href={ONE_TIME_GIFT_URL}
+              class="block w-full bg-brand hover:bg-brand-dark text-white py-4 text-sm font-medium tracking-wide text-center transition-colors"
             >
-              One-Time Gift
-            </button>
-            <button
-              id="tab-monthly"
-              class="donate-tab px-6 py-3 text-sm font-medium tracking-wide border-b-2 transition-colors border-transparent text-dark/50 hover:text-dark"
-            >
-              Monthly — Freedom Partner
-            </button>
+              Give a One-Time Gift
+            </a>
           </div>
 
-          <!-- One-time amounts -->
-          <div id="panel-onetime" class="donate-panel space-y-6">
-            <div>
-              <p class="text-dark/60 text-xs uppercase tracking-wide mb-3">Select an Amount</p>
-              <div class="grid grid-cols-4 gap-3">
-                {oneTimeAmounts.map((amt) => (
-                  <button
-                    class="amount-btn border border-clay/40 hover:border-brand hover:text-brand text-dark text-sm font-medium py-3 transition-colors data-[selected=true]:bg-brand data-[selected=true]:border-brand data-[selected=true]:text-white"
-                    data-amount={amt}
-                  >
-                    ${amt}
-                  </button>
-                ))}
-              </div>
-              <div class="mt-3">
-                <div class="relative">
-                  <span class="absolute left-4 top-1/2 -translate-y-1/2 text-dark/40 text-sm">$</span>
-                  <input
-                    id="custom-amount"
-                    type="number"
-                    min="1"
-                    placeholder="Other amount"
-                    class="w-full border border-clay/40 focus:border-brand bg-transparent text-dark placeholder-dark/30 pl-8 pr-4 py-3 text-sm focus:outline-none"
-                  />
-                </div>
-              </div>
-            </div>
-
-            <!-- Region -->
-            <div>
-              <label class="block text-dark/60 text-xs uppercase tracking-wide mb-2">
-                Designate Your Gift (Optional)
-              </label>
-              <div class="relative">
-                <select
-                  id="region-onetime"
-                  class="w-full appearance-none bg-transparent border border-clay/40 focus:border-brand text-dark px-4 py-3 pr-10 text-sm focus:outline-none cursor-pointer"
-                >
-                  {regions.map((r) => (
-                    <option value={r}>{r}</option>
-                  ))}
-                </select>
-                <div class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2">
-                  <svg class="w-4 h-4 text-dark/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-
-            <!-- Proceed button (payment processor placeholder) -->
-            <div>
-              <button
-                class="w-full bg-brand hover:bg-brand-dark text-white py-4 text-sm font-medium tracking-wide transition-colors"
-              >
-                Proceed to Checkout
-              </button>
-              <p class="text-center text-xs text-dark/40 mt-3 italic">
-                Secure payment processing — coming soon
-              </p>
-            </div>
-          </div>
-
-          <!-- Monthly amounts (hidden by default) -->
-          <div id="panel-monthly" class="donate-panel space-y-6 hidden">
-            <div class="bg-brand/8 border border-brand/20 px-5 py-4 mb-2">
+          <!-- Monthly: Freedom Partner -->
+          <div id="monthly" class="scroll-mt-28">
+            <p class="text-brand text-sm font-medium tracking-[0.2em] uppercase mb-3">Give Monthly</p>
+            <h2 class="font-display text-3xl text-dark mb-4">Become a Freedom Partner</h2>
+            <div class="w-10 h-0.5 bg-brand mb-5"></div>
+            <div class="bg-brand/8 border border-brand/20 px-5 py-4 mb-6">
               <p class="text-brand text-sm font-medium">Freedom Partner</p>
               <p class="text-dark/65 text-xs mt-1 leading-relaxed">
                 A monthly commitment provides sustained, reliable support that persecuted believers
@@ -139,64 +71,35 @@ const monthlyAmounts = [10, 25, 50, 100];
               </p>
             </div>
 
-            <div>
-              <p class="text-dark/60 text-xs uppercase tracking-wide mb-3">Monthly Amount</p>
-              <div class="grid grid-cols-4 gap-3">
-                {monthlyAmounts.map((amt) => (
-                  <button
-                    class="amount-btn border border-clay/40 hover:border-brand hover:text-brand text-dark text-sm font-medium py-3 transition-colors data-[selected=true]:bg-brand data-[selected=true]:border-brand data-[selected=true]:text-white"
-                    data-amount={amt}
+            <p class="text-dark/60 text-xs uppercase tracking-wide mb-3">Choose a Monthly Amount</p>
+            <ul class="grid grid-cols-2 sm:grid-cols-4 gap-3 list-none m-0 p-0">
+              {MONTHLY_GIFTS.map(({ amount, url }) => (
+                <li>
+                  <a
+                    href={url}
+                    aria-label={`Give $${amount} per month as a Freedom Partner`}
+                    class="block border border-clay/50 hover:border-brand hover:bg-brand text-dark hover:text-white py-4 text-center transition-colors"
                   >
-                    ${amt}
-                  </button>
-                ))}
-              </div>
-              <div class="mt-3">
-                <div class="relative">
-                  <span class="absolute left-4 top-1/2 -translate-y-1/2 text-dark/40 text-sm">$</span>
-                  <input
-                    type="number"
-                    min="1"
-                    placeholder="Other monthly amount"
-                    class="w-full border border-clay/40 focus:border-brand bg-transparent text-dark placeholder-dark/30 pl-8 pr-4 py-3 text-sm focus:outline-none"
-                  />
-                </div>
-              </div>
-            </div>
-
-            <!-- Region -->
-            <div>
-              <label class="block text-dark/60 text-xs uppercase tracking-wide mb-2">
-                Designate Your Gift (Optional)
-              </label>
-              <div class="relative">
-                <select
-                  class="w-full appearance-none bg-transparent border border-clay/40 focus:border-brand text-dark px-4 py-3 pr-10 text-sm focus:outline-none cursor-pointer"
-                >
-                  {regions.map((r) => (
-                    <option value={r}>{r}</option>
-                  ))}
-                </select>
-                <div class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2">
-                  <svg class="w-4 h-4 text-dark/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <button
-                class="w-full bg-brand hover:bg-brand-dark text-white py-4 text-sm font-medium tracking-wide transition-colors"
-              >
-                Become a Freedom Partner
-              </button>
-              <p class="text-center text-xs text-dark/40 mt-3 italic">
-                Secure payment processing — coming soon
-              </p>
-            </div>
+                    <span class="block text-2xl font-semibold">${amount}</span>
+                    <span class="block text-xs uppercase tracking-wide opacity-70 mt-1">per month</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <p class="text-dark/60 text-xs leading-relaxed mt-4">
+              To change or cancel a monthly gift at any time, email
+              <a href="mailto:donations@joshuacord.org" class="text-brand hover:underline">donations@joshuacord.org</a>.
+            </p>
           </div>
 
+          <!-- Checkout note -->
+          <div class="bg-sand-dark border border-clay/30 p-5">
+            <p class="text-dark/70 text-xs leading-relaxed">
+              <strong class="text-dark">Secure checkout by Stripe.</strong> Your payment details are
+              entered on Stripe's secure page, never on this site. When your gift is complete,
+              you'll be brought back to joshuacord.org.
+            </p>
+          </div>
         </div>
 
         <!-- RIGHT: Why give -->
@@ -271,45 +174,3 @@ const monthlyAmounts = [10, 25, 50, 100];
   </section>
 
 </Layout>
-
-<script>
-  // Tab switching
-  const tabOnetime = document.getElementById('tab-onetime')!;
-  const tabMonthly = document.getElementById('tab-monthly')!;
-  const panelOnetime = document.getElementById('panel-onetime')!;
-  const panelMonthly = document.getElementById('panel-monthly')!;
-
-  function activateTab(active: HTMLElement, inactive: HTMLElement, show: HTMLElement, hide: HTMLElement) {
-    active.classList.add('border-brand', 'text-brand');
-    active.classList.remove('border-transparent', 'text-dark/50');
-    inactive.classList.remove('border-brand', 'text-brand');
-    inactive.classList.add('border-transparent', 'text-dark/50');
-    show.classList.remove('hidden');
-    hide.classList.add('hidden');
-  }
-
-  tabOnetime.addEventListener('click', () => activateTab(tabOnetime, tabMonthly, panelOnetime, panelMonthly));
-  tabMonthly.addEventListener('click', () => activateTab(tabMonthly, tabOnetime, panelMonthly, panelOnetime));
-
-  // Preselect the region when arriving from a mission field's support link
-  const requestedRegion = new URLSearchParams(window.location.search).get('region');
-  document.querySelectorAll<HTMLSelectElement>('.donate-panel select').forEach((select) => {
-    if (requestedRegion && [...select.options].some((option) => option.value === requestedRegion)) {
-      select.value = requestedRegion;
-    }
-  });
-
-  // Amount button selection
-  document.querySelectorAll('.amount-btn').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      // Deselect siblings in the same panel
-      const panel = btn.closest('.donate-panel');
-      panel?.querySelectorAll('.amount-btn').forEach((b) => b.removeAttribute('data-selected'));
-      btn.setAttribute('data-selected', 'true');
-
-      // Clear custom input if a preset is selected
-      const customInput = panel?.querySelector<HTMLInputElement>('#custom-amount');
-      if (customInput) customInput.value = '';
-    });
-  });
-</script>
